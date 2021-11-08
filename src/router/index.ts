@@ -1,15 +1,16 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
+  /*
   {
     path: "/",
-    name: "wrapper",
+    name: "home",
     component: Home,
   },
+  */
 ];
 
 const router = new VueRouter({
