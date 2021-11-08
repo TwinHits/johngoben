@@ -1,5 +1,5 @@
 <template>
-    <v-list-item>
+    <v-list-item @click="goToRoute(item.route)">
         <v-list-item-content>
             <v-list-item-title class="nav-item-title" :class="{'nav-item-active': active}">{{ item.title }}</v-list-item-title>
         </v-list-item-content>
@@ -10,6 +10,7 @@
 import Vue, { PropType } from 'vue';
 
 import { NavItem } from '@/common/types/navigation';
+import { RawLocation } from 'vue-router';
 
 export default Vue.extend({
     props: {
@@ -20,6 +21,11 @@ export default Vue.extend({
         active: {
             type: Boolean,
             required: true,
+        }
+    },
+    methods: {
+        goToRoute(route: RawLocation) {
+            this.$router.push(route);
         }
     }
 });

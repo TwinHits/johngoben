@@ -20,16 +20,28 @@ export default Vue.extend({
         return {
             navigationItems: [
                 {
-                    title: 'Me',
+                    title: 'About',
+                    route: {
+                        name: "About"
+                    }
                 },
                 {
                     title: 'Code',
+                    route: {
+                        name: "Code"
+                    }
                 },
                 {
                     title: 'Art',
+                    route: {
+                        name: "Art"
+                    }
                 },
                 {
-                    title: 'Writing',
+                    title: 'Words',
+                    route: {
+                        name: "Words"
+                    }
                 },
             ] as NavItem[],
             activeItem: undefined as NavItem | undefined,

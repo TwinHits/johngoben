@@ -1,6 +1,6 @@
 <template>
     <v-row>
-        This is the About Me section.
+        This is the Words section.
     </v-row>
 </template>
 

@@ -1,7 +1,7 @@
-import { Route } from "vue-router";
+import { RawLocation } from "vue-router";
 
 export interface NavItem {
     title: string;
-    route: Route;
+    route: RawLocation;
     subitems: NavItem;
 }
