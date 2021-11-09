@@ -2,18 +2,6 @@ import { NavItem } from "../types/navigation";
 
 export const NAVIGATION_ITEMS = [
     {
-        title: 'About',
-        route: {
-            name: "About"
-        }
-    },
-    {
-        title: 'Code',
-        route: {
-            name: "Code"
-        }
-    },
-    {
         title: 'Art',
         route: {
             name: "Art"
@@ -23,6 +11,18 @@ export const NAVIGATION_ITEMS = [
         title: 'Words',
         route: {
             name: "Words"
+        }
+    },
+    {
+        title: 'About',
+        route: {
+            name: "About"
+        }
+    },
+    {
+        title: 'Code',
+        route: {
+            name: "Code"
         }
     },
 ] as NavItem[];

@@ -1,6 +1,8 @@
 <template>
         <v-list dense nav>
-            <NavigationItem v-for="(item, index) of navItems" :key="index" :item="item" :active="activeItem === item" @click="setActiveItem($event)" />
+             <transition-group name="nav-list" tag="p">
+                <NavigationItem v-for="item of navItems" :key="item.title" :item="item" :active="activeItem === item" @click="resortNavItems($event)" />
+            </transition-group>
         </v-list>
 </template>
 
@@ -14,51 +16,49 @@ import NavigationItem from '@/views/components/navigation/NavigationItem.vue';
 
 export default Vue.extend({
     components: {
-        NavigationItem,
+       NavigationItem,
     },
     data() {
         return {
             navItems: NAVIGATION_ITEMS as NavItem[],
-            activeItem: NAVIGATION_ITEMS[0] as NavItem,
+            activeItem: NAVIGATION_ITEMS[Math.floor(NAVIGATION_ITEMS.length / 2)] as NavItem,
         };
     },
-    watch: {
-        activeItem(newValue, oldValue) {
-            this.navItems = this.resortNavItems(newValue, oldValue, this.navItems);
+    mounted() {
+        const currentRoute = this.$route.name;
+        const newActiveItem = NAVIGATION_ITEMS.find((item) => item.route.name === currentRoute);
+        if (newActiveItem && this.activeItem !== newActiveItem) {
+            this.resortNavItems(newActiveItem);
         }
     },
-    mounted() {
-        this.navItems = this.resortNavItems(this.activeItem, NAVIGATION_ITEMS[Math.floor(NAVIGATION_ITEMS.length / 2)], this.navItems);
-    },
     methods: {
-        setActiveItem(item: NavItem) {
-            this.activeItem = item;
-        },
-        resortNavItems(newActiveItem: NavItem, oldActiveItem: NavItem, navItems: NavItem[]): NavItem[] {
-            if (navItems && navItems.length > 0) {
-                const newActiveIndex = navItems.indexOf(newActiveItem)
-                const oldActiveIndex = navItems.indexOf(oldActiveItem);
+        resortNavItems(newActiveItem: NavItem) {
+            const newActiveIndex = this.navItems.indexOf(newActiveItem);
+            const oldActiveIndex = this.navItems.indexOf(this.activeItem);
 
-                const moves = newActiveIndex - oldActiveIndex;
-                for (let i = 0; i !== moves; ) {
-                    if (i < moves) {
-                        const item = navItems.shift() as NavItem;
-                        navItems.push(item);
-                        i++;
-                    } else if (i > moves) {
-                        const item = navItems.pop() as NavItem;
-                        navItems.unshift(item);
-                        i--;
-                    } else {
-                        break;
-                    }
+            const moves = newActiveIndex - oldActiveIndex;
+            for (let i = 0; i !== moves; ) {
+                if (i < moves) {
+                    const item = this.navItems.shift() as NavItem;
+                    this.navItems.push(item);
+                    i++;
+                } else if (i > moves) {
+                    const item = this.navItems.pop() as NavItem;
+                    this.navItems.unshift(item);
+                    i--;
+                } else {
+                    break;
                 }
             }
 
-            return navItems;
-        }
-    }
+            this.activeItem = newActiveItem;
+        },
+    },
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.nav-list-move {
+  transition: all 1s;
+}
+</style>
