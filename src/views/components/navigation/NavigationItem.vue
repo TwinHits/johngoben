@@ -26,6 +26,7 @@ export default Vue.extend({
     methods: {
         goToRoute(route: RawLocation) {
             this.$router.push(route);
+            this.$emit('click', this.item);
         }
     }
 });
@@ -38,5 +39,6 @@ export default Vue.extend({
 
 .nav-item-active {
     font-size: 1.2em;
+    font-weight: bold;
 }
 </style>

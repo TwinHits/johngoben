@@ -1,17 +1,13 @@
 <template>
     <v-app app>
-        <v-row>
-            <v-col :cols="4">
-                <LeftNavigation />
-            </v-col>
-            <v-col :cols="8">
-                <v-main>
-                    <v-container id="app" fluid>
-                        <router-view />
-                    </v-container>
-                </v-main>
-            </v-col>
-        </v-row>
+        <v-navigation-drawer permanent app>
+            <LeftNavigation />
+        </v-navigation-drawer>
+        <v-content app>
+            <v-container id="app">
+                <router-view />
+            </v-container>
+        </v-content>
     </v-app>
 </template>
 
