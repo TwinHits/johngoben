@@ -48,7 +48,7 @@ export default Vue.extend({
 .nav-item-active {
     font-size: 1.4em;
     font-weight: bold;
-    padding-left: 7vw;
+    padding-left: 6vw;
     transition: font-size .7s, padding-left .7s;
 }
 </style>
