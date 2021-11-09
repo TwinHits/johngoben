@@ -1,7 +1,11 @@
 <template>
     <v-list-item @click="goToRoute(item.route)">
-        <v-list-item-content>
-            <v-list-item-title><span  class="nav-item-title" :class="{'nav-item-active': active}">{{ item.title }}</span></v-list-item-title>
+        <v-list-item-content class="text-left">
+            <v-list-item-title>
+                <Transition mode="out-in" name="fade-in">
+                    <span class="nav-item-title" :class="{'nav-item-active': active}">{{ item.title }}</span>
+                </Transition>
+            </v-list-item-title>
         </v-list-item-content>
     </v-list-item>
 </template>
@@ -36,11 +40,15 @@ export default Vue.extend({
 
 <style scoped>
 .nav-item-title {
-    font-size: 1.1em;
+    font-size: 0.9em;
+    padding-left: 4vw;
+    transition: font-size .7s, padding-left .7s;
 }
 
 .nav-item-active {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: bold;
+    padding-left: 7vw;
+    transition: font-size .7s, padding-left .7s;
 }
 </style>
