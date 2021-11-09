@@ -1,7 +1,7 @@
 <template>
     <v-list-item @click="goToRoute(item.route)">
         <v-list-item-content>
-            <v-list-item-title class="nav-item-title" :class="{'nav-item-active': active}">{{ item.title }}</v-list-item-title>
+            <v-list-item-title><span  class="nav-item-title" :class="{'nav-item-active': active}">{{ item.title }}</span></v-list-item-title>
         </v-list-item-content>
     </v-list-item>
 </template>
