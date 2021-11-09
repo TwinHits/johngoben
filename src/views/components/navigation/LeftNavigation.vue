@@ -1,6 +1,6 @@
 <template>
         <v-list dense nav>
-            <NavigationItem v-for="(item, index) of items" :key="index" :item="item" :active="activeItem === item" @click="setActiveItem($event)" />
+            <NavigationItem v-for="(item, index) of navItems" :key="index" :item="item" :active="activeItem === item" @click="setActiveItem($event)" />
         </v-list>
 </template>
 
@@ -8,6 +8,7 @@
 import Vue from 'vue';
 
 import { NavItem } from '@/common/types/navigation';
+
 import { NAVIGATION_ITEMS } from '@/common/constants/navigation';
 import NavigationItem from '@/views/components/navigation/NavigationItem.vue';
 
@@ -17,29 +18,44 @@ export default Vue.extend({
     },
     data() {
         return {
-            activeItem: undefined as NavItem | undefined,
+            navItems: NAVIGATION_ITEMS as NavItem[],
+            activeItem: NAVIGATION_ITEMS[0] as NavItem,
         };
     },
-    computed: {
-        items(): NavItem[] {
-            if (this.activeItem) {
-                const size = NAVIGATION_ITEMS.length;
-                const half = Math.floor(size / 2);
-                const activeItemIndex = NAVIGATION_ITEMS.indexOf(this.activeItem);
-                const start = activeItemIndex - half;
-                const end = activeItemIndex + half;
-
-                const firstHalf = NAVIGATION_ITEMS.slice(activeItemIndex);
-                const secondHalf = NAVIGATION_ITEMS.slice(0, activeItemIndex);
-                return NAVIGATION_ITEMS;
-            } else {
-                return NAVIGATION_ITEMS;
-            }
+    watch: {
+        activeItem(newValue, oldValue) {
+            this.navItems = this.resortNavItems(newValue, oldValue, this.navItems);
         }
+    },
+    mounted() {
+        this.navItems = this.resortNavItems(this.activeItem, NAVIGATION_ITEMS[Math.floor(NAVIGATION_ITEMS.length / 2)], this.navItems);
     },
     methods: {
         setActiveItem(item: NavItem) {
             this.activeItem = item;
+        },
+        resortNavItems(newActiveItem: NavItem, oldActiveItem: NavItem, navItems: NavItem[]): NavItem[] {
+            if (navItems && navItems.length > 0) {
+                const newActiveIndex = navItems.indexOf(newActiveItem)
+                const oldActiveIndex = navItems.indexOf(oldActiveItem);
+
+                const moves = newActiveIndex - oldActiveIndex;
+                for (let i = 0; i !== moves; ) {
+                    if (i < moves) {
+                        const item = navItems.shift() as NavItem;
+                        navItems.push(item);
+                        i++;
+                    } else if (i > moves) {
+                        const item = navItems.pop() as NavItem;
+                        navItems.unshift(item);
+                        i--;
+                    } else {
+                        break;
+                    }
+                }
+            }
+
+            return navItems;
         }
     }
 });

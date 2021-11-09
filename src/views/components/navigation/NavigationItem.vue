@@ -25,8 +25,10 @@ export default Vue.extend({
     },
     methods: {
         goToRoute(route: RawLocation) {
-            this.$router.push(route);
-            this.$emit('click', this.item);
+            if (!this.active) {
+                this.$router.push(route);
+                this.$emit('click', this.item);
+            }
         }
     }
 });
