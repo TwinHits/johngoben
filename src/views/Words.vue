@@ -1,5 +1,7 @@
 <template>
-    <v-row> This is the Words section. </v-row>
+    <v-slide-y-transition>
+        <v-row> This is the Words section. </v-row>
+    </v-slide-y-transition>
 </template>
 
 <script lang="ts">

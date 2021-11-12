@@ -1,5 +1,5 @@
 <template>
-        <v-list dense nav>
+        <v-list dense nav class="elevation-0">
              <transition-group name="nav-list" tag="p">
                 <NavigationItem v-for="item of navItems" :key="item.title" :item="item" :active="activeItem === item" @click="resortNavItems($event)" />
             </transition-group>

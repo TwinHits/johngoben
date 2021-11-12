@@ -1,6 +1,5 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
-
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
 import About from '@/views/About.vue';
 import Code from '@/views/Code.vue';
 import Art from '@/views/Art.vue';
