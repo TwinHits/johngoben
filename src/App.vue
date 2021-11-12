@@ -4,7 +4,7 @@
             <LeftNavigation />
         </v-navigation-drawer>
         <v-content app>
-            <v-container id="app">
+            <v-container fill-height class="">
                 <router-view />
             </v-container>
         </v-content>
@@ -22,12 +22,16 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss">
-#app {
+<style scoped lang="scss">
+@import "@/style/Colors.scss";
+.app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+}
+
+.container {
+    padding: 0;
+    background-color: $background-dark;
 }
 </style>
