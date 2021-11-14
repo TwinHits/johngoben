@@ -16,7 +16,6 @@ export class CircularLinkedList {
             ptr.last.next = ptr;
             this.root.last = ptr;
         }
-        console.log(this.root);
     }
 
     seek(item: any): LinkedListNode | undefined {
