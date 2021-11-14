@@ -1,6 +1,7 @@
 <template>
 <v-row class="full-height" no-gutters>
-    <v-col cols="3">
+    <NextViewIcon class="up-next-view-icon" direction="up" />
+    <v-col cols="3" class='info-col'>
         <Transition name="slide-right" mode="out-in">
         <v-card v-show="show" elevation="3" class="info-card full-height">
             <v-card-title>
@@ -17,7 +18,7 @@
     </v-col>
     <v-col cols="9">
         <v-row no-gutters class="half-height">
-            <v-col>
+            <v-col class='info-col'>
             <Transition name="slide-left" mode="out-in" >
                 <v-card v-show="show" elevation="0" class="info-card full-height">
                     <v-card-title>
@@ -34,7 +35,7 @@
             </v-col>
         </v-row>
         <v-row no-gutters class="half-height">
-            <v-col>
+            <v-col class='info-col'>
             <Transition name="slide-up" mode="out-in" >
                 <v-card v-show="show" elevation="0" class="info-card full-height">
                     <v-card-title>
@@ -51,11 +52,19 @@
             </v-col>
         </v-row>
     </v-col>
+    <NextViewIcon class="down-next-view-icon" direction="down" />
 </v-row>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';export default Vue.extend({
+import Vue from 'vue';
+
+import NextViewIcon from './components/navigation/NextViewIcon.vue';
+
+export default Vue.extend({
+    components: {
+        NextViewIcon,
+    },
     data() {
         return {
             show: false,
@@ -69,78 +78,14 @@ import Vue from 'vue';export default Vue.extend({
 
 <style scoped lang="scss">
 @import "@/style/Colors.scss";
-.container-row {
-    height: 100%;
-}
+@import "@/style/Utils.scss";
+@import "@/style/NextViewIcon.scss";
+@import "@/style/Transitions.scss";
 
-.full-height {
-    height: 100%;
-}
-
-.half-height {
-    height: 50%;
+.info-col {
+    padding: 1vh 0.5vw;
 }
 
 .info-card {
-    background-color: $background-dark;
 }
-
-/* Slide Right */
-.slide-right-enter-active, .slide-right-leave-active {
-  transition: all 1.2s;
-}
-
-.slide-right-enter, .slide-right-right-leave-to {
-  opacity: 0;
-  transform: translate(-80%, 0);
-}
-
-.slide-right-leave {
-  opacity: 1;
-  transform: translate(100%, 0);
-}
-
-.slide-right-enter-to {
-  opacity: 1;
-}
-
-/* Slide Left */
-.slide-left-enter-active, .slide-left-leave-active {
-  transition: all 1.4s;
-}
-
-.slide-left-enter, .slide-left-right-leave-to {
-  opacity: 0;
-  transform: translate(50%, 0);
-}
-
-.slide-left-leave {
-  opacity: 1;
-  transform: translate(-100%, 0);
-}
-
-.slide-left-enter-to {
-  opacity: 1;
-}
-
-/* Slide Left */
-.slide-up-enter-active, .slide-up-leave-active {
-  transition: all 1.4s;
-}
-
-.slide-up-enter, .slide-up-right-leave-to {
-  opacity: 0;
-  transform: translate(0, 100%);
-}
-
-.slide-up-leave {
-  opacity: 1;
-  transform: translate(0, -100%);
-}
-
-.slide-up-enter-to {
-  opacity: 1;
-}
-
-
 </style>

@@ -1,9 +1,9 @@
 <template>
-        <v-list dense nav class="elevation-0">
-             <transition-group name="nav-list" tag="p">
-                <NavigationItem v-for="item of navItems" :key="item.title" :item="item" :active="activeItem === item" @click="resortNavItems($event)" />
-            </transition-group>
-        </v-list>
+    <v-list dense nav class="elevation-0">
+        <transition-group name="list-move">
+            <NavigationItem v-for="item of navItems" :key="item.title" :item="item" :active="activeItem === item" />
+        </transition-group>
+    </v-list>
 </template>
 
 <script lang="ts">
@@ -13,6 +13,7 @@ import { NavItem } from '@/common/types/navigation';
 
 import { NAVIGATION_ITEMS } from '@/common/constants/navigation';
 import NavigationItem from '@/views/components/navigation/NavigationItem.vue';
+import * as NavigationUtils from '@/common/utils/navigation';
 
 export default Vue.extend({
     components: {
@@ -24,17 +25,22 @@ export default Vue.extend({
             activeItem: NAVIGATION_ITEMS[Math.floor(NAVIGATION_ITEMS.length / 2)] as NavItem,
         };
     },
-    mounted() {
-        const currentRoute = this.$route.name;
-        const newActiveItem = NAVIGATION_ITEMS.find((item) => item.route.name === currentRoute);
-        if (newActiveItem && this.activeItem !== newActiveItem) {
-            this.resortNavItems(newActiveItem);
+    watch: {
+        $route(newValue) {
+            const newActiveItem = NavigationUtils.findCurrentNavigationItem(newValue);
+            this.resortNavItems(newActiveItem, this.activeItem);
+            this.activeItem = newActiveItem;
         }
     },
+    mounted() {
+        const newActiveItem = NavigationUtils.findCurrentNavigationItem(this.$router.currentRoute);
+        this.resortNavItems(newActiveItem, this.activeItem);
+        this.activeItem = newActiveItem;
+    },
     methods: {
-        resortNavItems(newActiveItem: NavItem) {
+        resortNavItems(newActiveItem: NavItem, oldActiveItem: NavItem) {
             const newActiveIndex = this.navItems.indexOf(newActiveItem);
-            const oldActiveIndex = this.navItems.indexOf(this.activeItem);
+            const oldActiveIndex = this.navItems.indexOf(oldActiveItem);
 
             const moves = newActiveIndex - oldActiveIndex;
             for (let i = 0; i !== moves; ) {
@@ -50,15 +56,11 @@ export default Vue.extend({
                     break;
                 }
             }
-
-            this.activeItem = newActiveItem;
         },
     },
 });
 </script>
 
-<style scoped>
-.nav-list-move {
-  transition: all 1s;
-}
+<style lang="scss" scoped>
+@import '@/style/Transitions.scss';
 </style>
