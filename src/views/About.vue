@@ -1,7 +1,6 @@
 <template>
 <v-row class="full-height" no-gutters>
-    <NextViewIcon class="up-next-view-icon" direction="up" />
-    <v-col cols="3" class='info-col'>
+    <v-col cols="3" class='info-col-left info-col-top'>
         <Transition name="slide-right" mode="out-in">
         <v-card v-show="show" elevation="3" class="info-card full-height">
             <v-card-title>
@@ -18,7 +17,7 @@
     </v-col>
     <v-col cols="9">
         <v-row no-gutters class="half-height">
-            <v-col class='info-col'>
+            <v-col class='info-col-right info-col-top'>
             <Transition name="slide-left" mode="out-in" >
                 <v-card v-show="show" elevation="0" class="info-card full-height">
                     <v-card-title>
@@ -35,7 +34,7 @@
             </v-col>
         </v-row>
         <v-row no-gutters class="half-height">
-            <v-col class='info-col'>
+            <v-col class='info-col-right info-col-bottom'>
             <Transition name="slide-up" mode="out-in" >
                 <v-card v-show="show" elevation="0" class="info-card full-height">
                     <v-card-title>
@@ -52,18 +51,14 @@
             </v-col>
         </v-row>
     </v-col>
-    <NextViewIcon class="down-next-view-icon" direction="down" />
 </v-row>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
-import NextViewIcon from './components/navigation/NextViewIcon.vue';
-
 export default Vue.extend({
     components: {
-        NextViewIcon,
     },
     data() {
         return {
@@ -79,11 +74,26 @@ export default Vue.extend({
 <style scoped lang="scss">
 @import "@/style/Colors.scss";
 @import "@/style/Utils.scss";
-@import "@/style/NextViewIcon.scss";
 @import "@/style/Transitions.scss";
 
-.info-col {
-    padding: 1vh 0.5vw;
+.info-col-left {
+    padding-left: 0.5vw;
+    padding-right: 0.25vw;
+}
+
+.info-col-right {
+    padding-left: 0.25vw;
+    padding-right: 0.5vw;
+}
+
+.info-col-top {
+    padding-top: 0.5vw;
+    padding-bottom: 0.25vw;
+}
+
+.info-col-bottom {
+    padding-top: 0.25vw;
+    padding-bottom: 0.5vw;
 }
 
 .info-card {
