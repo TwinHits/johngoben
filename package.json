@@ -11,7 +11,9 @@
     "start": "vue-cli-service serve"
   },
   "dependencies": {
+    "@mdi/font": "^6.4.95",
     "core-js": "3.6.5",
+    "mdi-font": "^1.0.1",
     "vue": "2.6.11",
     "vue-router": "3.2.0",
     "vuetify": "2.2.13",
