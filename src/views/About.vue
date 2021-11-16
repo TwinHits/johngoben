@@ -51,6 +51,13 @@ export default Vue.extend({
     mounted() {
         this.show = true;
     },
+    methods: {
+        startTransitions() {
+            let delay = 0;
+            let step = 300;
+            setTimeout(() => (this.show = true), (delay += step));
+        },
+    },
 });
 </script>
 

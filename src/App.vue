@@ -4,7 +4,7 @@
             <LeftNavigation />
         </v-navigation-drawer>
         <v-content app>
-            <v-container fill-height class="">
+            <v-container fill-height class="container">
                 <NextViewIcon class="up-next-view-icon" direction="up" />
                 <router-view />
                 <NextViewIcon class="down-next-view-icon" direction="down" />
