@@ -64,9 +64,10 @@ export default Vue.extend({
 @import "@/style/Transitions.scss";
 
 .hover-area {
-    width: 100vw;
+    width: 60vw;
     height: 9vh;
     z-index: 1;
+    margin: 0 20vw;
 }
 
 .next-view-icon-card {

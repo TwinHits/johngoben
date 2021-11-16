@@ -6,8 +6,9 @@
         <v-content app>
             <v-container fill-height class="">
                 <NextViewIcon class="up-next-view-icon" direction="up" />
-                    <router-view />
+                <router-view />
                 <NextViewIcon class="down-next-view-icon" direction="down" />
+                <ContactMe class="contact-me" />
             </v-container>
         </v-content>
     </v-app>
@@ -18,12 +19,13 @@ import Vue from 'vue';
 
 import * as NavigationUtils from '@/common/utils/navigation';
 
+import ContactMe from '@/views/components/ContactMe.vue';
 import LeftNavigation from '@/views/components/navigation/LeftNavigation.vue';
 import NextViewIcon from '@/views/components/navigation/NextViewIcon.vue';
-import router from './router';
 
 export default Vue.extend({
     components: {
+        ContactMe,
         LeftNavigation,
         NextViewIcon,
     },
@@ -49,7 +51,7 @@ export default Vue.extend({
             }
 
             if (nextRoute) {
-                router.push(nextRoute.route);
+                this.$router.push(nextRoute.route);
             }
         },
     }
@@ -59,6 +61,7 @@ export default Vue.extend({
 <style scoped lang="scss">
 @import "@/style/Colors.scss";
 @import "@/style/components/NextViewIcon.scss";
+
 .app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
