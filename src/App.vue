@@ -16,14 +16,43 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import * as NavigationUtils from '@/common/utils/navigation';
+
 import LeftNavigation from '@/views/components/navigation/LeftNavigation.vue';
 import NextViewIcon from '@/views/components/navigation/NextViewIcon.vue';
+import router from './router';
 
 export default Vue.extend({
     components: {
         LeftNavigation,
         NextViewIcon,
     },
+    created () {
+        window.addEventListener('wheel', this.handleWheelScroll);
+    },
+    destroyed () {
+        window.removeEventListener('wheel', this.handleWheelScroll);
+    },
+    methods: {
+        handleWheelScroll(event: WheelEvent) {
+            let nextRoute;
+            if (event.deltaY < 0) {
+                let topOfWindow = document.body.scrollTop === 0;
+                if (topOfWindow) {
+                    nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, -1)
+                }
+            } else if (event.deltaY > 0) {
+                let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight >= document.documentElement.offsetHeight;
+                if (bottomOfWindow) {
+                    nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, 1)
+                }
+            }
+
+            if (nextRoute) {
+                router.push(nextRoute.route);
+            }
+        },
+    }
 });
 </script>
 
