@@ -1,69 +1,52 @@
 <template>
-<v-row class="full-height" no-gutters>
-    <v-col cols="3" class='info-col-left info-col-top'>
-        <Transition name="slide-right" mode="out-in">
-        <v-card v-show="show" elevation="3" class="info-card full-height">
-            <v-card-title>
-                Hello!
-            </v-card-title>
-            <v-card-subtitle>
-                My name's John
-            </v-card-subtitle>
-            <v-card-text>
-                And I'm a huge nerd, big picture
-            </v-card-text>
-        </v-card>
-        </Transition>
-    </v-col>
-    <v-col cols="9">
-        <v-row no-gutters class="half-height">
-            <v-col class='info-col-right info-col-top'>
-            <Transition name="slide-left" mode="out-in" >
-                <v-card v-show="show" elevation="0" class="info-card full-height">
-                    <v-card-title>
-                        Summary 
-                    </v-card-title>
-                    <v-card-subtitle>
-                        I am this person generally
-                    </v-card-subtitle>
-                    <v-card-text>
-                        I do these specific things
-                    </v-card-text>
-                </v-card>/
-            </Transition>
-            </v-col>
-        </v-row>
-        <v-row no-gutters class="half-height">
-            <v-col class='info-col-right info-col-bottom'>
-            <Transition name="slide-up" mode="out-in" >
-                <v-card v-show="show" elevation="0" class="info-card full-height">
-                    <v-card-title>
-                        Sign post
-                    </v-card-title>
-                    <v-card-subtitle>
-                        My Work
-                    </v-card-subtitle>
-                    <v-card-text>
-                        Check out my work this way by scrolling or clicking this mildly bouncing arrow
-                    </v-card-text>
+    <v-row class="full-height" no-gutters>
+        <v-col cols="3" class="info-col-left info-col-top">
+            <Transition name="slide-right" mode="out-in">
+                <v-card v-show="show" elevation="3" class="info-card full-height">
+                    <v-card-title> Hello! </v-card-title>
+                    <v-card-subtitle> My name's John </v-card-subtitle>
+                    <v-card-text> And I'm a huge nerd, big picture </v-card-text>
                 </v-card>
             </Transition>
-            </v-col>
-        </v-row>
-    </v-col>
-</v-row>
+        </v-col>
+        <v-col cols="9">
+            <v-row no-gutters class="half-height">
+                <v-col class="info-col-right info-col-top">
+                    <Transition name="slide-left" mode="out-in">
+                        <v-card v-show="show" elevation="0" class="info-card full-height">
+                            <v-card-title> Summary </v-card-title>
+                            <v-card-subtitle> I am this person generally </v-card-subtitle>
+                            <v-card-text> I do these specific things </v-card-text> </v-card
+                        >/
+                    </Transition>
+                </v-col>
+            </v-row>
+            <v-row no-gutters class="half-height">
+                <v-col class="info-col-right info-col-bottom">
+                    <Transition name="slide-up" mode="out-in">
+                        <v-card v-show="show" elevation="0" class="info-card full-height">
+                            <v-card-title> Sign post </v-card-title>
+                            <v-card-subtitle> My Work </v-card-subtitle>
+                            <v-card-text>
+                                Check out my work this way by scrolling or clicking this mildly bouncing arrow
+                            </v-card-text>
+                        </v-card>
+                    </Transition>
+                </v-col>
+            </v-row>
+        </v-col>
+    </v-row>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
 export default Vue.extend({
-    components: {
-    },
+    components: {},
     data() {
         return {
             show: false,
-        }
+        };
     },
     mounted() {
         this.show = true;
@@ -72,9 +55,9 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-@import "@/style/Colors.scss";
-@import "@/style/Utils.scss";
-@import "@/style/Transitions.scss";
+@import '@/style/Colors.scss';
+@import '@/style/Utils.scss';
+@import '@/style/Transitions.scss';
 
 .info-col-left {
     padding-left: 0.5vw;
