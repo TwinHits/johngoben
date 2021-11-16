@@ -27,7 +27,12 @@
     transition: all 1.4s;
   }
   
-  .slide-left-enter, .slide-left-right-leave-to {
+  .slide-left-enter {
+    opacity: 0;
+    transform: translate(50%, 0);
+  }
+
+  .slide-left-leave-to {
     opacity: 0;
     transform: translate(50%, 0);
   }

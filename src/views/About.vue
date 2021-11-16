@@ -78,7 +78,4 @@ export default Vue.extend({
     padding-top: 0.25vw;
     padding-bottom: 0.5vw;
 }
-
-.info-card {
-}
 </style>
