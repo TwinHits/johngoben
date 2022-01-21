@@ -3,7 +3,7 @@
         <v-list-item-content class="text-left">
             <v-list-item-title>
                 <Transition mode="out-in" name="fade-in">
-                    <span class="nav-item-title" :class="{'nav-item-active': active}">{{ item.title }}</span>
+                    <span class="nav-item-title" :class="{ 'nav-item-active': active }">{{ item.title }}</span>
                 </Transition>
             </v-list-item-title>
         </v-list-item-content>
@@ -25,7 +25,7 @@ export default Vue.extend({
         active: {
             type: Boolean,
             required: true,
-        }
+        },
     },
     methods: {
         goToRoute(route: RawLocation) {
@@ -33,8 +33,8 @@ export default Vue.extend({
                 this.$router.push(route);
                 this.$emit('click', this.item);
             }
-        }
-    }
+        },
+    },
 });
 </script>
 
@@ -42,13 +42,13 @@ export default Vue.extend({
 .nav-item-title {
     font-size: 0.9em;
     padding-left: 4vw;
-    transition: font-size .7s, padding-left .7s;
+    transition: font-size 0.7s, padding-left 0.7s;
 }
 
 .nav-item-active {
     font-size: 1.4em;
     font-weight: bold;
     padding-left: 6vw;
-    transition: font-size .7s, padding-left .7s;
+    transition: font-size 0.7s, padding-left 0.7s;
 }
 </style>

@@ -1,22 +1,20 @@
 <template>
-<v-row no-gutters>
-    <v-col>
-        <v-row class="header-row" no-gutters>
-            <v-col class="header-col">
-                <v-card class="full-height">
-                    <v-content>
-                        Header
-                    </v-content>
-                </v-card>
-            </v-col>
-        </v-row>
-        <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
-            <v-col v-for="col in cols" :key="col" :class="getClassFromCol(((row-1) * cols) + col)">
-                <ArtDisplayCard :content="((row -1) * cols) + col" />
-            </v-col>
-        </v-row>
-</v-col>
-</v-row>
+    <v-row no-gutters>
+        <v-col>
+            <v-row class="header-row" no-gutters>
+                <v-col class="header-col">
+                    <v-card class="full-height">
+                        <v-content> Header </v-content>
+                    </v-card>
+                </v-col>
+            </v-row>
+            <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
+                <v-col v-for="col in cols" :key="col" :class="getClassFromCol((row - 1) * cols + col)">
+                    <ArtDisplayCard :content="art[(row - 1) * cols + col]" />
+                </v-col>
+            </v-row>
+        </v-col>
+    </v-row>
 </template>
 
 <script lang="ts">
@@ -24,14 +22,19 @@ import Vue from 'vue';
 
 import ArtDisplayCard from '@/views/components/art/ArtDisplayCard.vue';
 
+import * as Art from '@/common/constants/art';
+
 export default Vue.extend({
     components: {
         ArtDisplayCard,
     },
     data() {
         return {
-            totalItems: 15 as number,
-        }
+            totalItems: Art.ART_FILENAMES.length as number,
+            art: Art.ART_FILENAMES,
+            fullPath: Art.ART_FULL_PATH,
+            clippath: Art.ART_CLIP_PATH,
+        };
     },
     computed: {
         cols(): number {
@@ -42,7 +45,7 @@ export default Vue.extend({
         },
         leftEdgeCols(): number[] {
             let leftEdgeCols = [] as number[];
-            for (let i = 1; i < this.totalItems;) {
+            for (let i = 1; i < this.totalItems; ) {
                 leftEdgeCols.push(i);
                 i += this.cols;
             }
@@ -50,13 +53,13 @@ export default Vue.extend({
         },
         rightEdgeCols(): number[] {
             let rightEdgeCols = [] as number[];
-            for (let i = this.totalItems; i > 0 ;) {
+            for (let i = this.totalItems; i > 0; ) {
                 rightEdgeCols.push(i);
                 i -= this.cols;
             }
             return rightEdgeCols;
         },
-    }, 
+    },
     methods: {
         getClassFromCol(col: number) {
             let classes = ['art-card-col-mid'];
@@ -73,22 +76,22 @@ export default Vue.extend({
                 classes.push('art-card-col-right');
             }
 
-console.log(col, classes);
+            console.log(col, classes);
             return classes;
-        }
-    }
+        },
+    },
 });
 </script>
 
 <style scoped lang="scss">
-@import "@/style/Utils.scss";
+@import '@/style/Utils.scss';
 
 .header-row {
     height: 10vh;
 }
 
 .header-col {
-    padding: 0.5vh 0.5vw
+    padding: 0.5vh 0.5vw;
 }
 
 .art-row {
@@ -101,7 +104,7 @@ console.log(col, classes);
 }
 
 .art-card-col-mid {
-    padding: 0.25vh 0.25vw
+    padding: 0.25vh 0.25vw;
 }
 
 .art-card-col-right {
@@ -110,7 +113,7 @@ console.log(col, classes);
 }
 
 .art-card-col-top {
-    padding-top: .5vh;
+    padding-top: 0.5vh;
     padding-bottom: 0.25vh;
 }
 
@@ -118,5 +121,4 @@ console.log(col, classes);
     padding-top: 0.25vh;
     padding-bottom: 0.5vh;
 }
-
 </style>

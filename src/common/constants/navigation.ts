@@ -1,28 +1,22 @@
-import { NavItem } from "../types/navigation";
+import { NavItem } from '../types/navigation';
 
 export const NAVIGATION_ITEMS = [
     {
         title: 'About',
         route: {
-            name: "About"
-        }
+            name: 'About',
+        },
     },
     {
         title: 'Code',
         route: {
-            name: "Code"
-        }
+            name: 'Code',
+        },
     },
     {
         title: 'Art',
         route: {
-            name: "Art"
-        }
-    },
-    {
-        title: 'Words',
-        route: {
-            name: "Words"
-        }
+            name: 'Art',
+        },
     },
 ] as NavItem[];

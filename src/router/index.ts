@@ -8,34 +8,29 @@ import Words from '@/views/Words.vue';
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
-  {
-    path: "/",
-    redirect: "/about"
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: About,
-  },
-  {
-    path: "/code",
-    name: "Code",
-    component: Code,
-  },
-  {
-    path: "/art",
-    name: "Art",
-    component: Art,
-  },
-  {
-    path: "/words",
-    name: "Words",
-    component: Words,
-  },
+    {
+        path: '/',
+        redirect: '/about',
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: About,
+    },
+    {
+        path: '/code',
+        name: 'Code',
+        component: Code,
+    },
+    {
+        path: '/art',
+        name: 'Art',
+        component: Art,
+    },
 ];
 
 const router = new VueRouter({
-  routes,
+    routes,
 });
 
 export default router;

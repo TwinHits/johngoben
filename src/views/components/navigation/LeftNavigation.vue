@@ -17,7 +17,7 @@ import * as NavigationUtils from '@/common/utils/navigation';
 
 export default Vue.extend({
     components: {
-       NavigationItem,
+        NavigationItem,
     },
     data() {
         return {
@@ -30,7 +30,7 @@ export default Vue.extend({
             const newActiveItem = NavigationUtils.findCurrentNavigationItem(newValue);
             this.resortNavItems(newActiveItem, this.activeItem);
             this.activeItem = newActiveItem;
-        }
+        },
     },
     mounted() {
         const newActiveItem = NavigationUtils.findCurrentNavigationItem(this.$router.currentRoute);
