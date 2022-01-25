@@ -1,6 +1,6 @@
 <template>
     <v-app app>
-        <v-navigation-drawer permanent app>
+        <v-navigation-drawer permanent app class="nav-drawer">
             <LeftNavigation />
         </v-navigation-drawer>
         <v-content app>
@@ -38,11 +38,8 @@ export default Vue.extend({
     methods: {
         handleWheelScroll(event: WheelEvent) {
             let nextRoute;
-            if (event.deltaY < 0) {
-                let topOfWindow = document.body.scrollTop === 0;
-                if (topOfWindow) {
-                    nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, -1)
-                }
+            if (window.scrollY === 0) {
+                nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, -1)
             } else if (event.deltaY > 0) {
                 let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight >= document.documentElement.offsetHeight;
                 if (bottomOfWindow) {
@@ -68,8 +65,13 @@ export default Vue.extend({
     -moz-osx-font-smoothing: grayscale;
 }
 
+.nav-drawer {
+    background: $off-white !important;
+}
+
 .container {
     padding: 0;
     background-color: $background-dark;
 }
+
 </style>
