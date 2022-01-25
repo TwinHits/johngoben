@@ -1,10 +1,10 @@
 import { ArtPortfolioItem } from '@/common/types/art';
 
-export const ART_FULL_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazonaws.com/full/';
-export const ART_CLIP_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazonaws.com/clip/';
+export const ART_FULL_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazonaws.com/art/full/';
+export const ART_CLIP_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazonaws.com/art/clip/';
 export const ART_FILENAMES = [
     {
-        name: 'Abandomed Farmhouse',
+        name: 'Abandoned Farmhouse',
         filename: 'Abandoned+Farmhouse.jpg',
         tags: [''],
     },

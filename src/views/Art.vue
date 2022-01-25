@@ -1,16 +1,11 @@
 <template>
     <v-row no-gutters>
         <v-col>
-            <v-row class="header-row" no-gutters>
-                <v-col class="header-col">
-                    <v-card class="full-height">
-                        <v-content> Header </v-content>
-                    </v-card>
-                </v-col>
-            </v-row>
             <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
                 <v-col v-for="col in cols" :key="col" :class="getClassFromCol((row - 1) * cols + col)">
-                    <ArtDisplayCard :content="art[(row - 1) * cols + col]" />
+                    <Transition :name="getTransitionFromColAndRow(col, row)" mode="out-in" appear>
+                        <ArtDisplayCard :content="art[(row - 1) * cols + col]" />
+                    </Transition>
                 </v-col>
             </v-row>
         </v-col>
@@ -23,6 +18,7 @@ import Vue from 'vue';
 import ArtDisplayCard from '@/views/components/art/ArtDisplayCard.vue';
 
 import * as Art from '@/common/constants/art';
+import { ArtPortfolioItem } from '@/common/types/art';
 
 export default Vue.extend({
     components: {
@@ -31,17 +27,16 @@ export default Vue.extend({
     data() {
         return {
             totalItems: Art.ART_FILENAMES.length as number,
-            art: Art.ART_FILENAMES,
-            fullPath: Art.ART_FULL_PATH,
-            clippath: Art.ART_CLIP_PATH,
+            art: Art.ART_FILENAMES as ArtPortfolioItem[],
+            transitions: ["slide-right", "slide-down", "slide-left", "slide-right", "slide-up", "slide-left"] as string[],
         };
     },
     computed: {
         cols(): number {
-            return 5;
+            return 3;
         },
         rows(): number {
-            return this.totalItems / this.cols;
+            return Math.floor(this.totalItems / this.cols);
         },
         leftEdgeCols(): number[] {
             let leftEdgeCols = [] as number[];
@@ -53,9 +48,9 @@ export default Vue.extend({
         },
         rightEdgeCols(): number[] {
             let rightEdgeCols = [] as number[];
-            for (let i = this.totalItems; i > 0; ) {
+            for (let i = 0; i < this.totalItems; ) {
+                i += this.cols;
                 rightEdgeCols.push(i);
-                i -= this.cols;
             }
             return rightEdgeCols;
         },
@@ -76,49 +71,57 @@ export default Vue.extend({
                 classes.push('art-card-col-right');
             }
 
-            console.log(col, classes);
             return classes;
         },
+        getTransitionFromColAndRow(col: number, row: number): string {
+            console.log(col, row);
+            let colAndRow = (col - 1) + ((row - 1) * this.cols);
+            if (colAndRow > this.transitions.length) {
+                return this.transitions[colAndRow % this.transitions.length];
+            }
+            return this.transitions[colAndRow];
+        }
     },
 });
 </script>
 
 <style scoped lang="scss">
 @import '@/style/Utils.scss';
+@import '@/style/Transitions.scss';
 
 .header-row {
     height: 10vh;
 }
 
 .header-col {
-    padding: 0.5vh 0.5vw;
+    padding: 0.5vh 1vw;
 }
 
 .art-row {
-    height: 20vh;
+    
 }
 
 .art-card-col-left {
-    padding-left: 0.5vw;
-    padding-right: 0.25vw;
+    padding-left: 2vw !important;
+    padding-right: 1vw;
 }
 
 .art-card-col-mid {
-    padding: 0.25vh 0.25vw;
+    padding: 1vh 1vw;
 }
 
 .art-card-col-right {
-    padding-left: 0.25vw;
-    padding-right: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 2vw;
 }
 
 .art-card-col-top {
-    padding-top: 0.5vh;
-    padding-bottom: 0.25vh;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
 }
 
 .art-card-col-bottom {
-    padding-top: 0.25vh;
-    padding-bottom: 0.5vh;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
 }
 </style>

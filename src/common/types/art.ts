@@ -1,4 +1,5 @@
 export interface ArtPortfolioItem {
-    title: string;
+    name: string;
     filename: string;
+    tags: string[];
 }
