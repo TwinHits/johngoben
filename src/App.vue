@@ -38,7 +38,9 @@ export default Vue.extend({
     methods: {
         handleWheelScroll(event: WheelEvent) {
             let nextRoute;
-            if (window.scrollY === 0) {
+            console.log(event.deltaY);
+            console.log(window.scrollY);
+            if (event.deltaY < 0 && window.scrollY === 0) {
                 nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, -1)
             } else if (event.deltaY > 0) {
                 let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight >= document.documentElement.offsetHeight;
