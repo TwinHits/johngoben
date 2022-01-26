@@ -4,11 +4,12 @@
             <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
                 <v-col v-for="col in cols" :key="col" :class="getClassFromCol((row - 1) * cols + col)">
                     <Transition :name="getTransitionFromColAndRow(col, row)" mode="out-in" appear>
-                        <ArtDisplayCard :content="art[(row - 1) * cols + col]" />
+                        <ArtDisplayCard :content="art[(row - 1) * cols + col]" @imgClick="showArtModal($event)" />
                     </Transition>
                 </v-col>
             </v-row>
         </v-col>
+        <ArtDisplayModal :content="showArtModalContent" @close="hideArtModal" />
     </v-row>
 </template>
 
@@ -16,6 +17,7 @@
 import Vue from 'vue';
 
 import ArtDisplayCard from '@/views/components/art/ArtDisplayCard.vue';
+import ArtDisplayModal from '@/views/components/art/ArtDisplayModal.vue';
 
 import * as Art from '@/common/constants/art';
 import { ArtPortfolioItem } from '@/common/types/art';
@@ -23,12 +25,14 @@ import { ArtPortfolioItem } from '@/common/types/art';
 export default Vue.extend({
     components: {
         ArtDisplayCard,
+        ArtDisplayModal,
     },
     data() {
         return {
             totalItems: Art.ART_FILENAMES.length as number,
             art: Art.ART_FILENAMES as ArtPortfolioItem[],
             transitions: ["slide-right", "slide-down", "slide-left", "slide-right", "slide-up", "slide-left"] as string[],
+            showArtModalContent: undefined as ArtPortfolioItem | undefined,
         };
     },
     computed: {
@@ -80,6 +84,13 @@ export default Vue.extend({
                 return this.transitions[colAndRow % this.transitions.length];
             }
             return this.transitions[colAndRow];
+        },
+        showArtModal(content: ArtPortfolioItem) {
+            this.$store.commit('setScrollNavigationEnabled', false);
+            this.showArtModalContent = content;
+        },
+        hideArtModal() {
+            this.$store.commit('setScrollNavigationEnabled', true);
         }
     },
 });
@@ -123,5 +134,9 @@ export default Vue.extend({
 .art-card-col-bottom {
     padding-top: 1vh;
     padding-bottom: 2vh;
+}
+
+.art-display-modal {
+    height: 66%;
 }
 </style>

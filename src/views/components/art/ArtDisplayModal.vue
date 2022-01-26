@@ -1,22 +1,21 @@
 <template>
-    <v-card class="art-display-card">
-        <v-row>
-            <v-col class="art-img-container">
-                <v-skeleton-loader v-show="loading" type="card" class="art-img" />
-                <img class="art-img" v-show="!loading" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick"/>
-            </v-col>
-        </v-row>
-        <v-row class="art-img-title text-center">
+    <v-dialog v-model="show" max-width="66%">
+        <v-card class="art-display-card">
+        <v-row class="art-img-title text-center" no-gutters>
             <v-col>
                 {{ content.name }}
             </v-col>
-        </v-row>
-        <v-row>
             <v-col class="art-img-container">
                 {{ content.tags }}
             </v-col>
         </v-row>
-    </v-card>
+        <v-row no-gutters>
+            <v-col class="art-img-container" align="center">
+                <img class="art-img" v-show="!loading" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick" />
+            </v-col>
+        </v-row>
+        </v-card>
+    </v-dialog>
 </template>
 
 <script lang="ts">
@@ -32,17 +31,24 @@ export default Vue.extend({
             type: Object as PropType<ArtPortfolioItem>,
             required: true,
         }, 
-        transition: {
-            type: String,
-            required: true,
-        }
     },
     data() {
         return {
+            show: false,
             loading: true,
             fullPath: Art.ART_FULL_PATH as string,
             clippath: Art.ART_CLIP_PATH as string,
         };
+    },
+    watch: {
+        content() {
+            this.show = true;
+        },
+        show(newValue) {
+            if (!newValue) {
+                this.onClose();
+            }
+        }
     },
     methods: {
         onImgLoad() {
@@ -54,12 +60,16 @@ export default Vue.extend({
         onTagClick(tag: string) {
             this.$emit("tagClick", tag);
         },
+        onClose() {
+            this.$emit("close");
+        }
     }
 });
 </script>
 
 <style lang="scss" scoped>
 @import '@/style/Colors.scss';
+@import '@/style/Transitions.scss';
 @import '@/style/Utils.scss';
 
 .art-display-card {
@@ -73,7 +83,6 @@ export default Vue.extend({
 
 .art-img {
     padding: 1vh 1vw;
-    width: 100%;
-    height: 100%;
+    height: 86vh;
 }
 </style>
