@@ -63,6 +63,4 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import '@/style/Transitions.scss';
-@import '@/style/Colors.scss';
-
 </style>

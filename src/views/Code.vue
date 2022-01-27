@@ -96,7 +96,7 @@ export default Vue.extend({
 @import '@/style/Utils.scss';
 
 .info-card {
-    background: $silver;
+    background: $foreground;
 }
 
 .info-col-left {

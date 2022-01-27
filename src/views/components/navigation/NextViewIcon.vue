@@ -61,6 +61,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+@import '@/style/Colors.scss';
 @import '@/style/Transitions.scss';
 
 .hover-area {
@@ -71,6 +72,7 @@ export default Vue.extend({
 }
 
 .next-view-icon-card {
+    background: $super-foreground;
     padding: 0.5vh 1.5vw;
 }
 </style>

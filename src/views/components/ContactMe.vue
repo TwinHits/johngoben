@@ -29,13 +29,17 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+@import '@/style/Colors.scss';
+
 .contact-me {
+    background: $super-foreground;
     position: fixed;
     bottom: 2vh;
     left: 90vw;
 }
 
 .contact-me-full {
+    background: $super-foreground;
     max-width: 20vw;
     left: 78vw;
 }

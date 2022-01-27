@@ -67,7 +67,7 @@ export default Vue.extend({
 @import '@/style/Transitions.scss';
 
 .info-card {
-    background: $silver;
+    background: $foreground;
 }
 
 .info-col-left {
