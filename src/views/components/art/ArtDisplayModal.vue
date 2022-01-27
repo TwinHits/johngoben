@@ -1,11 +1,20 @@
 <template>
     <v-dialog v-model="show" width="unset">
         <v-card class="art-display-card">
-        <v-row no-gutters>
-            <v-col class="art-img-container" align="center">
-                <img class="art-img" v-show="!loading" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick" />
-            </v-col>
-        </v-row>
+            <v-btn class="close-icon-button" color="#90A4AE" icon medium elevation="4">
+                <v-icon color="#263238" size="35">mdi-window-close</v-icon> 
+            </v-btn>
+            <v-row no-gutters>
+                <v-col class="art-img-container" align="center">
+                    <img
+                        class="art-img"
+                        v-if="content"
+                        v-show="!loading"
+                        :src="fullPath + content.filename"
+                        @load="onImgLoad"
+                    />
+                </v-col>
+            </v-row>
         </v-card>
     </v-dialog>
 </template>
@@ -21,8 +30,7 @@ export default Vue.extend({
     props: {
         content: {
             type: Object as PropType<ArtPortfolioItem>,
-            required: true,
-        }, 
+        },
     },
     data() {
         return {
@@ -33,29 +41,28 @@ export default Vue.extend({
         };
     },
     watch: {
-        content() {
-            this.show = true;
+        content(newValue) {
+            if (newValue) {
+                this.show = true;
+            }
         },
         show(newValue) {
             if (!newValue) {
                 this.onClose();
             }
-        }
+        },
     },
     methods: {
         onImgLoad() {
             this.loading = false;
         },
-        onImgClick() {
-            this.$emit("imgClick", this.content);
-        },
         onTagClick(tag: string) {
-            this.$emit("tagClick", tag);
+            this.$emit('tagClick', tag);
         },
         onClose() {
-            this.$emit("close");
-        }
-    }
+            this.$emit('close');
+        },
+    },
 });
 </script>
 
@@ -65,7 +72,13 @@ export default Vue.extend({
 @import '@/style/Utils.scss';
 
 .art-display-card {
-    background: $silver;
+    background: $foreground;
+}
+
+.close-icon-button {
+    position: absolute;
+    right: 1vw;
+    top: 1.5vh;
 }
 
 .art-img-title {
@@ -74,7 +87,7 @@ export default Vue.extend({
 }
 
 .art-img {
-    padding: .75vh .5vw;
+    padding: 0.75vh 0.5vw 0vh 0.5vw;
     height: 89vh;
 }
 </style>

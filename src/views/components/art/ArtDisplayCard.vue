@@ -1,19 +1,27 @@
 <template>
     <v-card class="art-display-card" elevation="5">
-        <v-row>
+        <v-row no-gutters>
             <v-col class="art-img-container">
                 <v-skeleton-loader v-show="loading" type="card" class="art-img" />
-                <img class="art-img" v-show="!loading" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick"/>
+                <img
+                    class="art-img"
+                    v-show="!loading"
+                    :src="fullPath + content.filename"
+                    @load="onImgLoad"
+                    @click="onImgClick"
+                />
             </v-col>
         </v-row>
-        <v-row class="art-img-title text-left" no-gutters>
-            <v-col>
+        <v-row class="art-img-title text-left" no-gutters align="center">
+            <v-col class="art-img-font" md="auto">
                 {{ content.name }}
             </v-col>
-        </v-row>
-        <v-row>
-            <v-col class="art-img-container" no-gutters>
-                {{ content.tags }}
+            <v-col>
+                <v-row no-gutters justify="end">
+                    <v-col class="art-tag" md="auto" v-for="tag in content.tags" :key="tag">
+                        <ArtTag :content="tag" @click="onTagClick(tag)" />
+                    </v-col>
+                </v-row>
             </v-col>
         </v-row>
     </v-card>
@@ -26,16 +34,17 @@ import * as Art from '@/common/constants/art';
 
 import { ArtPortfolioItem } from '@/common/types/art';
 
+import ArtTag from '@/views/components/art/ArtTag.vue';
+
 export default Vue.extend({
+    components: {
+        ArtTag,
+    },
     props: {
         content: {
             type: Object as PropType<ArtPortfolioItem>,
             required: true,
-        }, 
-        transition: {
-            type: String,
-            required: true,
-        }
+        },
     },
     data() {
         return {
@@ -49,12 +58,12 @@ export default Vue.extend({
             this.loading = false;
         },
         onImgClick() {
-            this.$emit("imgClick", this.content);
+            this.$emit('imgClick', this.content);
         },
         onTagClick(tag: string) {
-            this.$emit("tagClick", tag);
+            this.$emit('tagClick', tag);
         },
-    }
+    },
 });
 </script>
 
@@ -63,18 +72,29 @@ export default Vue.extend({
 @import '@/style/Utils.scss';
 
 .art-display-card {
-    background: $silver;
+    background: $foreground;
 }
 
 .art-img-title {
     text-align: center;
     word-break: break-word;
-    padding-left: 1vw;
+    padding-left: 0.75vw;
+    padding-top: 0.75vh;
+    padding-bottom: 0.75vh;
+}
+
+.art-img-font {
+    color: $text;
+    font-weight: bold;
 }
 
 .art-img {
-    padding: 0 .5vw 0 .5vw;
+    padding: 1vh 0.5vw 0 0.5vw;
     width: 100%;
     height: 100%;
+}
+
+.art-tag {
+    padding: 0.25vh 0.25vw;
 }
 </style>

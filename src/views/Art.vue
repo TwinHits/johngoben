@@ -1,10 +1,10 @@
 <template>
-    <v-row no-gutters>
-        <v-col>
+    <v-row no-gutters ref="artContainer">
+        <v-col v-if="art.length">
             <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
                 <v-col v-for="col in cols" :key="col" :class="getClassFromCol((row - 1) * cols + col)">
                     <Transition :name="getTransitionFromColAndRow(col, row)" mode="out-in" appear>
-                        <ArtDisplayCard :content="art[(row - 1) * cols + col]" @imgClick="showArtModal($event)" />
+                        <ArtDisplayCard v-if="filteredArt[(row - 1) * cols + col]" :content="filteredArt[(row - 1) * cols + col]" @imgClick="showArtModal($event)" @tagClick="onTagClick($event)" />
                     </Transition>
                 </v-col>
             </v-row>
@@ -31,11 +31,26 @@ export default Vue.extend({
         return {
             totalItems: Art.ART_FILENAMES.length as number,
             art: Art.ART_FILENAMES as ArtPortfolioItem[],
-            transitions: ["slide-right", "slide-down", "slide-left", "slide-right", "slide-up", "slide-left"] as string[],
+            transitions: [
+                'slide-right',
+                'slide-down',
+                'slide-left',
+                'slide-right',
+                'slide-up',
+                'slide-left',
+            ] as string[],
             showArtModalContent: undefined as ArtPortfolioItem | undefined,
+            selectedTag: undefined as string| undefined,
         };
     },
     computed: {
+        filteredArt(): ArtPortfolioItem[] {
+            if (!this.selectedTag)  {
+                return this.art;
+            } else {
+                return this.art.filter((a: ArtPortfolioItem) => a.tags.includes(this.selectedTag as string));
+            }
+        },
         cols(): number {
             return 3;
         },
@@ -78,8 +93,7 @@ export default Vue.extend({
             return classes;
         },
         getTransitionFromColAndRow(col: number, row: number): string {
-            console.log(col, row);
-            let colAndRow = (col - 1) + ((row - 1) * this.cols);
+            let colAndRow = col - 1 + (row - 1) * this.cols;
             if (colAndRow > this.transitions.length) {
                 return this.transitions[colAndRow % this.transitions.length];
             }
@@ -90,7 +104,11 @@ export default Vue.extend({
             this.showArtModalContent = content;
         },
         hideArtModal() {
+            this.showArtModalContent = undefined;
             this.$store.commit('setScrollNavigationEnabled', true);
+        },
+        onTagClick(tag: string) {
+            this.selectedTag = tag;
         }
     },
 });
@@ -109,7 +127,6 @@ export default Vue.extend({
 }
 
 .art-row {
-    
 }
 
 .art-card-col-left {
