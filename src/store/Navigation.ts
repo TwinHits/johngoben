@@ -1,16 +1,15 @@
 export default {
-    state: () => ({ 
+    state: () => ({
         isScrollNavigationEnabled: true as boolean,
     }),
-    mutations: { 
-        setScrollNavigationEnabled (state: any, enabled: boolean) {
+    mutations: {
+        setScrollNavigationEnabled(state: any, enabled: boolean) {
             state.isScrollNavigationEnabled = enabled;
-          }
+        },
     },
-    actions: { 
+    actions: {
         isScrollNavigationEnabled: (state: any) => {
             return state.isScrollNavigationEnabled;
-          }
-    }
-}
-  
+        },
+    },
+};
