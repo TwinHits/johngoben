@@ -66,6 +66,10 @@ export default Vue.extend({
 @import '@/style/Utils.scss';
 @import '@/style/Transitions.scss';
 
+.info-card {
+    background: $silver;
+}
+
 .info-col-left {
     padding-left: 0.5vw;
     padding-right: 0.25vw;

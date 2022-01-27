@@ -1,18 +1,18 @@
 <template>
-    <v-card class="art-display-card">
+    <v-card class="art-display-card" elevation="5">
         <v-row>
             <v-col class="art-img-container">
                 <v-skeleton-loader v-show="loading" type="card" class="art-img" />
                 <img class="art-img" v-show="!loading" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick"/>
             </v-col>
         </v-row>
-        <v-row class="art-img-title text-center">
+        <v-row class="art-img-title text-left" no-gutters>
             <v-col>
                 {{ content.name }}
             </v-col>
         </v-row>
         <v-row>
-            <v-col class="art-img-container">
+            <v-col class="art-img-container" no-gutters>
                 {{ content.tags }}
             </v-col>
         </v-row>
@@ -63,16 +63,17 @@ export default Vue.extend({
 @import '@/style/Utils.scss';
 
 .art-display-card {
-    background: $off-white;
+    background: $silver;
 }
 
 .art-img-title {
     text-align: center;
     word-break: break-word;
+    padding-left: 1vw;
 }
 
 .art-img {
-    padding: 1vh 1vw;
+    padding: 0 .5vw 0 .5vw;
     width: 100%;
     height: 100%;
 }

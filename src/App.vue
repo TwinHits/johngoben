@@ -68,12 +68,15 @@ export default Vue.extend({
 }
 
 .nav-drawer {
-    background: $off-white !important;
+    background: $silver !important;
+    z-index: 5;
+    box-shadow: -4px 0px 10px $background-dark;
 }
 
 .container {
+    font-family: "Anaheim", sans-serif;
     padding: 0;
-    background-color: $background-dark;
+    background-color: lightblue;
 }
 
 </style>

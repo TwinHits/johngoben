@@ -1,14 +1,6 @@
 <template>
-    <v-dialog v-model="show" max-width="66%">
+    <v-dialog v-model="show" width="unset">
         <v-card class="art-display-card">
-        <v-row class="art-img-title text-center" no-gutters>
-            <v-col>
-                {{ content.name }}
-            </v-col>
-            <v-col class="art-img-container">
-                {{ content.tags }}
-            </v-col>
-        </v-row>
         <v-row no-gutters>
             <v-col class="art-img-container" align="center">
                 <img class="art-img" v-show="!loading" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick" />
@@ -73,7 +65,7 @@ export default Vue.extend({
 @import '@/style/Utils.scss';
 
 .art-display-card {
-    background: $off-white;
+    background: $silver;
 }
 
 .art-img-title {
@@ -82,7 +74,7 @@ export default Vue.extend({
 }
 
 .art-img {
-    padding: 1vh 1vw;
-    height: 86vh;
+    padding: .75vh .5vw;
+    height: 89vh;
 }
 </style>

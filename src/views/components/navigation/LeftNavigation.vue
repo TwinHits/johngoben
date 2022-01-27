@@ -1,5 +1,5 @@
 <template>
-    <v-list dense nav class="elevation-0">
+    <v-list dense nav class="elevation-0 max-height">
         <transition-group name="list-move">
             <NavigationItem v-for="item of navItems" :key="item.title" :item="item" :active="activeItem === item" />
         </transition-group>
@@ -65,7 +65,4 @@ export default Vue.extend({
 @import '@/style/Transitions.scss';
 @import '@/style/Colors.scss';
 
-.left-nav {
-    background: $off-white;
-}
 </style>

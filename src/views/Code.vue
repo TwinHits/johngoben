@@ -3,7 +3,7 @@
         <v-row no-gutters class="third-height">
             <v-col cols="7" class="info-col-left info-col-top">
                 <Transition name="slide-right" mode="out-in">
-                    <v-card v-show="showLeftTop" elevation="3" class="full-height">
+                    <v-card v-show="showLeftTop" elevation="3" class="info-card full-height">
                         <v-card-title> BackEnd! </v-card-title>
                         <v-card-subtitle> Subtitle </v-card-subtitle>
                         <v-card-text> Content </v-card-text>
@@ -12,7 +12,7 @@
             </v-col>
             <v-col cols="5" class="info-col-right info-col-top">
                 <Transition name="slide-left" mode="out-in">
-                    <v-card v-show="showRight" elevation="3" class="full-height">
+                    <v-card v-show="showRight" elevation="3" class="info-card full-height">
                         <v-card-title> BackEnd! </v-card-title>
                         <v-card-subtitle> Subtitle </v-card-subtitle>
                         <v-card-text> Content </v-card-text>
@@ -23,7 +23,7 @@
         <v-row no-gutters class="third-height">
             <v-col cols="6" class="info-col-left info-col-mid">
                 <Transition name="slide-right" mode="out-in">
-                    <v-card v-show="showLeftMid" elevation="3" class="full-height">
+                    <v-card v-show="showLeftMid" elevation="3" class="info-card full-height">
                         <v-card-title> Front End! </v-card-title>
                         <v-card-subtitle> Subtitle </v-card-subtitle>
                         <v-card-text> Content </v-card-text>
@@ -32,7 +32,7 @@
             </v-col>
             <v-col cols="6" class="info-col-right info-col-mid">
                 <Transition name="slide-left" mode="out-in">
-                    <v-card v-show="showRight" elevation="3" class="full-height">
+                    <v-card v-show="showRight" elevation="3" class="info-card full-height">
                         <v-card-title> Front End </v-card-title>
                         <v-card-subtitle> Subtitle </v-card-subtitle>
                         <v-card-text> Content </v-card-text>
@@ -43,7 +43,7 @@
         <v-row no-gutters class="third-height">
             <v-col cols="5" class="info-col-left info-col-bot">
                 <Transition name="slide-right" mode="out-in">
-                    <v-card v-show="showLeftBot" elevation="3" class="full-height">
+                    <v-card v-show="showLeftBot" elevation="3" class="info-card full-height">
                         <v-card-title> Dev Ops! </v-card-title>
                         <v-card-subtitle> Subtitle </v-card-subtitle>
                         <v-card-text> Content </v-card-text>
@@ -52,7 +52,7 @@
             </v-col>
             <v-col cols="7" class="info-col-right info-col-bot">
                 <Transition name="slide-left" mode="out-in">
-                    <v-card v-show="showRight" elevation="3" class="full-height">
+                    <v-card v-show="showRight" elevation="3" class="info-card full-height">
                         <v-card-title> Front End </v-card-title>
                         <v-card-subtitle> Subtitle </v-card-subtitle>
                         <v-card-text> Content </v-card-text>
@@ -91,8 +91,13 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+@import '@/style/Colors.scss';
 @import '@/style/Transitions.scss';
 @import '@/style/Utils.scss';
+
+.info-card {
+    background: $silver;
+}
 
 .info-col-left {
     padding-left: 0.5vw;
