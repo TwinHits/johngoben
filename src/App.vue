@@ -1,10 +1,10 @@
 <template>
     <v-app app>
-        <v-navigation-drawer permanent app class="nav-drawer">
+        <v-navigation-drawer permanent app class="nav-drawer font-family">
             <LeftNavigation />
         </v-navigation-drawer>
         <v-content app>
-            <v-container fill-height class="container">
+            <v-container fill-height class="container font-family">
                 <NextViewIcon class="up-next-view-icon" direction="up" />
                 <router-view />
                 <NextViewIcon class="down-next-view-icon" direction="down" />
@@ -38,8 +38,6 @@ export default Vue.extend({
     methods: {
         handleWheelScroll(event: WheelEvent) {
             let nextRoute;
-            console.log(event.deltaY);
-            console.log(window.scrollY);
             if (event.deltaY < 0 && window.scrollY === 0) {
                 nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, -1)
             } else if (event.deltaY > 0) {
@@ -60,23 +58,24 @@ export default Vue.extend({
 <style scoped lang="scss">
 @import "@/style/Colors.scss";
 @import "@/style/components/NextViewIcon.scss";
+@import url('https://fonts.googleapis.com/css2?family=Anaheim&display=swap');
 
-.app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+.font-family {
+    font-family: "Anaheim", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: $text !important;
 }
 
 .nav-drawer {
-    background: $silver !important;
+    background: $foreground !important;
     z-index: 5;
-    box-shadow: -4px 0px 10px $background-dark;
+    box-shadow: -4px 0px 10px black;
 }
 
 .container {
-    font-family: "Anaheim", sans-serif;
     padding: 0;
-    background-color: lightblue;
+    background-color: $background;
 }
 
 </style>
