@@ -1,6 +1,6 @@
 <template>
     <v-row class="full-height" no-gutters>
-        <v-col cols="3" class="info-col-left info-col-top">
+        <v-col cols="3" class="info-col-left info-col">
             <Transition name="slide-right" mode="out-in">
                 <v-card v-show="show" elevation="3" class="info-card full-height">
                     <v-card-title> Hello! </v-card-title>
@@ -68,6 +68,10 @@ export default Vue.extend({
 
 .info-card {
     background: $foreground;
+}
+
+.info-col {
+    padding: 0.5vw;
 }
 
 .info-col-left {
