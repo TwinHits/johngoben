@@ -1,5 +1,5 @@
 <template>
-    <v-chip class="art-tag" color="#607D8B" label text-color="#ECEFF1" @click="$emit('click')">
+    <v-chip class="art-tag" color="#607D8B" label text-color="#ECEFF1" @click="$emit('click')" :disabled="inactive">
         <span class="art-tag-label">
             {{ content }}
         </span>
@@ -14,6 +14,10 @@ export default Vue.extend({
             type: String,
             required: true,
         },
+        inactive: {
+            type: Boolean,
+            required: false,
+        }
     },
 });
 </script>
