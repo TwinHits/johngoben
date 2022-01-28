@@ -4,7 +4,12 @@
             <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
                 <v-col v-for="col in cols" :key="col" :class="getClassFromCol((row - 1) * cols + col)">
                     <Transition :name="getTransitionFromColAndRow(col, row)" mode="out-in" appear>
-                        <ArtDisplayCard v-if="filteredArt[(row - 1) * cols + col]" :content="filteredArt[(row - 1) * cols + col]" @imgClick="showArtModal($event)" @tagClick="onTagClick($event)" />
+                        <ArtDisplayCard
+                            v-if="filteredArt[(row - 1) * cols + col]"
+                            :content="filteredArt[(row - 1) * cols + col]"
+                            @imgClick="showArtModal($event)"
+                            @tagClick="onTagClick($event)"
+                        />
                     </Transition>
                 </v-col>
             </v-row>
@@ -40,12 +45,12 @@ export default Vue.extend({
                 'slide-left',
             ] as string[],
             showArtModalContent: undefined as ArtPortfolioItem | undefined,
-            selectedTag: undefined as string| undefined,
+            selectedTag: undefined as string | undefined,
         };
     },
     computed: {
         filteredArt(): ArtPortfolioItem[] {
-            if (!this.selectedTag)  {
+            if (!this.selectedTag) {
                 return this.art;
             } else {
                 return this.art.filter((a: ArtPortfolioItem) => a.tags.includes(this.selectedTag as string));
@@ -109,7 +114,7 @@ export default Vue.extend({
         },
         onTagClick(tag: string) {
             this.selectedTag = tag;
-        }
+        },
     },
 });
 </script>

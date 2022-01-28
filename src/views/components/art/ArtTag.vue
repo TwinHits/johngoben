@@ -20,6 +20,6 @@ export default Vue.extend({
 
 <style scoped>
 .art-tag-label {
-    padding: 0vh .25vw;
+    padding: 0vh 0.25vw;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <v-expand-transition>
-        <v-card @click="setShow(true)" class="contact-me" :class="{ 'contact-me-full': show }">
-            <v-card-title> Contact Me </v-card-title>
+        <v-card @click="setShow(!show)" class="contact-me" :class="{ 'contact-me-full': show }">
+            <v-card-title>Contact Me</v-card-title>
             <v-expand-transition>
                 <v-card-text v-if="show">
                     You can contact me about professional oppurtunities via my linkedin or email
