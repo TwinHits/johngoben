@@ -49,11 +49,6 @@ export const ART_FILENAMES = [
         tags: ['D&D', 'Pen & Paper', 'Isometric'],
     },
     {
-        name: "Azloc's Dragon Lair",
-        filename: 'Dragons_Lair.jpg',
-        tags: ['D&D', 'Pen & Paper', '2D'],
-    },
-    {
         name: 'Fortified Mountop Ritual, or The Ten Thousand Year Storm',
         filename: 'Fortified+Mountaintop+Ritual.jpg',
         tags: ['D&D', 'Pen & Paper', 'Isometric'],
@@ -145,7 +140,7 @@ export const ART_FILENAMES = [
     },
     {
         name: 'The Heart of the Jungle',
-        filename: 'The+Heart+of+the+Jungle+(Published).jpg',
+        filename: 'The+Heart+of+the+Jungle.jpg',
         tags: ['D&D', 'Pen & Paper', 'Isometric'],
     },
     {
@@ -160,7 +155,7 @@ export const ART_FILENAMES = [
     },
     {
         name: 'The Ricinus Family Estate',
-        filename: 'The+Ricinus+Family+Estate+(Published).jpg',
+        filename: "Noble's+Estate.jpg",
         tags: ['D&D', 'Pen & Paper', 'Isometric'],
     },
     {
@@ -194,13 +189,33 @@ export const ART_FILENAMES = [
         tags: ['D&D', 'Pen & Paper', '2D'],
     },
     {
-        name: 'The Vault of the Dawnforge',
-        filename: 'VaultOfTheDawnforge.jpg',
-        tags: ['D&D', 'Digital', 'Isometric'],
-    },
-    {
         name: 'Walter Durst, the Master of the House',
         filename: 'Walter+Durst,+Master+of+the+House.png',
         tags: ['D&D', 'Digital', 'Isometric'],
     },
+    { name: 'August: Osage County', filename: 'august.JPG', tags: ['Set Design', 'Wood'] },
+    { name: 'A Streetcar Named Desire, I', filename: 'dreamcar1.jpg', tags: ['Set Design', 'Wood'] },
+    { name: 'A Streetcar Named Desire, II', filename: 'dreamcar2.jpg', tags: ['Set Design', 'Wood'] },
+    { name: 'Medea', filename: 'medea.jpg', tags: ['Set Design', 'Wood'] },
+    { name: 'The Order Ruins, I', filename: 'OR1.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, II', filename: 'OR11.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, III', filename: 'OR12.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, IV', filename: 'OR14.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, V', filename: 'OR15.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, VI', filename: 'OR16.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, VII', filename: 'OR18.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, VIII', filename: 'OR19.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, IX', filename: 'OR2.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, X', filename: 'OR4.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, XI', filename: 'OR5.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, XII', filename: 'OR6.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, XIII', filename: 'OR7.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The Order Ruins, XIV', filename: 'OR9.jpg', tags: ['Level Design', 'Digital', '3D'] },
+    { name: 'The 25th Annual Putnam County Spelling Bee', filename: 'putnam.jpg', tags: ['Set Design', 'Wood'] },
+    { name: 'Red', filename: 'red.jpg', tags: ['Set Design', 'Pen & Paper'] },
+    { name: 'Rumors', filename: 'rumors.jpg', tags: ['Set Design', 'Wood'] },
+    { name: 'The Order Ruins, XV', filename: 'thegreathall.jpg', tags: ['Pen & Paper'] },
+    { name: 'TIE Advanced', filename: 'tieadvanced.jpg', tags: ['Pen & Paper'] },
+    { name: 'The Vault of the Dawnforge', filename: 'vaultofthedawnforge.jpg', tags: ['Pen & Paper'] },
+    { name: 'The Chasm Beneath Tresendar Manor', filename: 'The+Chasm+Beneath+Tresendar+Manor.png', tags: ['D&D', 'Digital', 'Isometric']}
 ] as ArtPortfolioItem[];

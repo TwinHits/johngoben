@@ -5,8 +5,8 @@
                 <v-col v-for="col in cols" :key="col" :class="getClassFromCol((row - 1) * cols + col)">
                     <Transition :name="getTransitionFromColAndRow(col, row)" mode="out-in" appear>
                         <ArtDisplayCard
-                            v-if="filteredArt[(row - 1) * cols + col]"
-                            :content="filteredArt[(row - 1) * cols + col]"
+                            v-if="filteredArt[(row - 1) * cols + col - 1]"
+                            :content="filteredArt[(row - 1) * cols + col - 1]"
                             @imgClick="showArtModal($event)"
                             @tagClick="onTagClick($event)"
                         />
@@ -37,12 +37,12 @@ export default Vue.extend({
             totalItems: Art.ART_FILENAMES.length as number,
             art: Art.ART_FILENAMES as ArtPortfolioItem[],
             transitions: [
-                'slide-right',
                 'slide-down',
-                'slide-left',
-                'slide-right',
+                'slide-down',
+                'slide-down',
                 'slide-up',
-                'slide-left',
+                'slide-up',
+                'slide-up',
             ] as string[],
             showArtModalContent: undefined as ArtPortfolioItem | undefined,
             selectedTag: undefined as string | undefined,
@@ -81,6 +81,7 @@ export default Vue.extend({
     },
     methods: {
         getClassFromCol(col: number) {
+            console.log(col);
             let classes = ['art-card-col-mid'];
 
             if (col <= this.cols) {
