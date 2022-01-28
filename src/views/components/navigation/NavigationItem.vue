@@ -1,6 +1,6 @@
 <template>
     <v-list-item class="nav-item" @click="goToRoute(item.route)">
-        <v-list-item-content class="text-left">
+        <v-list-item-content>
             <v-list-item-title>
                 <Transition mode="out-in" name="fade-in">
                     <span class="nav-item-title" :class="{ 'nav-item-active': active }">{{ item.title }}</span>

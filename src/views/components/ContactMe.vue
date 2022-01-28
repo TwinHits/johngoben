@@ -59,14 +59,14 @@ export default Vue.extend({
     position: fixed;
     bottom: 2vh;
     right: 1vw;
-    width: 6.9vw;
-    height: 6.5vh;
-    transition: width 1.2s, height 1.2s;
+    min-width: 6.9vw;
+    min-height: 6.5vh;
+    transition: min-width 1.2s, min-height 1.2s;
 }
 
 .contact-me-full {
-    width: 19vw;
-    height: 22vh;
+    min-width: 24vw;
+    min-height: 24vh;
 }
 
 .contact-me-title {
