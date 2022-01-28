@@ -4,12 +4,19 @@ export default {
     }),
     mutations: {
         selectTag(state: any, tag: string) {
-            state.selectedTags.push
+            if (state.selectedTags.includes(tag)) {
+                state.selectedTags = state.selectedTags.filter((t: string) => t !== tag);
+            } else {
+                state.selectedTags.push(tag);
+            }
         },
     },
-    actions: {
-        isScrollNavigationEnabled: (state: any) => {
-            return state.isScrollNavigationEnabled;
+    getters: {
+        selectedTags: (state: any) => {
+            return state.selectedTags;
+        },
+        isTagSelected: (state: any) => (tag: string) => {
+            return state.selectedTags.includes(tag);
         },
     },
 };

@@ -8,7 +8,6 @@
                             v-if="filteredArt[(row - 1) * cols + col - 1]"
                             :content="filteredArt[(row - 1) * cols + col - 1]"
                             @imgClick="showArtModal($event)"
-                            @tagClick="onTagClick($event)"
                         />
                     </Transition>
                 </v-col>
@@ -36,24 +35,26 @@ export default Vue.extend({
         return {
             totalItems: Art.ART_FILENAMES.length as number,
             art: Art.ART_FILENAMES as ArtPortfolioItem[],
-            transitions: [
-                'slide-down',
-                'slide-down',
-                'slide-down',
-                'slide-up',
-                'slide-up',
-                'slide-up',
-            ] as string[],
+            transitions: ['slide-down', 'slide-down', 'slide-down', 'slide-up', 'slide-up', 'slide-up'] as string[],
             showArtModalContent: undefined as ArtPortfolioItem | undefined,
-            selectedTag: undefined as string | undefined,
         };
     },
     computed: {
+        selectedTags(): string[] {
+            return this.$store.getters.selectedTags;
+        },
         filteredArt(): ArtPortfolioItem[] {
-            if (!this.selectedTag) {
+            if (!this.selectedTags.length) {
                 return this.art;
             } else {
-                return this.art.filter((a: ArtPortfolioItem) => a.tags.includes(this.selectedTag as string));
+                return this.art.filter((a: ArtPortfolioItem) => {
+                    for (let tag of a.tags) {
+                        if (this.selectedTags.includes(tag)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                });
             }
         },
         cols(): number {
@@ -81,7 +82,6 @@ export default Vue.extend({
     },
     methods: {
         getClassFromCol(col: number) {
-            console.log(col);
             let classes = ['art-card-col-mid'];
 
             if (col <= this.cols) {
@@ -112,9 +112,6 @@ export default Vue.extend({
         hideArtModal() {
             this.showArtModalContent = undefined;
             this.$store.commit('setScrollNavigationEnabled', true);
-        },
-        onTagClick(tag: string) {
-            this.selectedTag = tag;
         },
     },
 });

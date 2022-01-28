@@ -217,5 +217,9 @@ export const ART_FILENAMES = [
     { name: 'The Order Ruins, XV', filename: 'thegreathall.jpg', tags: ['Pen & Paper'] },
     { name: 'TIE Advanced', filename: 'tieadvanced.jpg', tags: ['Pen & Paper'] },
     { name: 'The Vault of the Dawnforge', filename: 'vaultofthedawnforge.jpg', tags: ['Pen & Paper'] },
-    { name: 'The Chasm Beneath Tresendar Manor', filename: 'The+Chasm+Beneath+Tresendar+Manor.png', tags: ['D&D', 'Digital', 'Isometric']}
+    {
+        name: 'The Chasm Beneath Tresendar Manor',
+        filename: 'The+Chasm+Beneath+Tresendar+Manor.png',
+        tags: ['D&D', 'Digital', 'Isometric'],
+    },
 ] as ArtPortfolioItem[];

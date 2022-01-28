@@ -19,7 +19,7 @@
             <v-col>
                 <v-row no-gutters justify="end">
                     <v-col class="art-tag" md="auto" v-for="tag in content.tags" :key="tag">
-                        <ArtTag :content="tag" @click="onTagClick(tag)" />
+                        <ArtTag :content="tag" />
                     </v-col>
                 </v-row>
             </v-col>
@@ -59,9 +59,6 @@ export default Vue.extend({
         },
         onImgClick() {
             this.$emit('imgClick', this.content);
-        },
-        onTagClick(tag: string) {
-            this.$emit('tagClick', tag);
         },
     },
 });
