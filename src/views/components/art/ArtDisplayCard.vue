@@ -83,7 +83,7 @@ export default Vue.extend({
 }
 
 .art-img-font {
-    color: $dark-text;
+    color: $text-dark;
     font-weight: bold;
 }
 

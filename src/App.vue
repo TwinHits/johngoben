@@ -64,7 +64,7 @@ export default Vue.extend({
     font-family: "Anaheim", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: $dark-text !important;
+    color: $text-dark !important;
 }
 
 .nav-drawer {
