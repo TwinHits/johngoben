@@ -3,13 +3,11 @@
         <v-col v-if="art.length">
             <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
                 <v-col v-for="col in cols" :key="col" :class="getClassFromCol((row - 1) * cols + col)">
-                    <Transition :name="getTransitionFromColAndRow(col, row)" mode="out-in" appear>
-                        <ArtDisplayCard
-                            v-if="filteredArt[(row - 1) * cols + col - 1]"
-                            :content="filteredArt[(row - 1) * cols + col - 1]"
-                            @imgClick="showArtModal($event)"
-                        />
-                    </Transition>
+                    <ArtDisplayCard
+                        v-if="filteredArt[(row - 1) * cols + col - 1]"
+                        :content="filteredArt[(row - 1) * cols + col - 1]"
+                        @imgClick="showArtModal($event)"
+                    />
                 </v-col>
             </v-row>
         </v-col>
@@ -35,7 +33,6 @@ export default Vue.extend({
         return {
             totalItems: Art.ART_FILENAMES.length as number,
             art: Art.ART_FILENAMES as ArtPortfolioItem[],
-            transitions: ['slide-down', 'slide-down', 'slide-down', 'slide-up', 'slide-up', 'slide-up'] as string[],
             showArtModalContent: undefined as ArtPortfolioItem | undefined,
         };
     },
@@ -98,13 +95,6 @@ export default Vue.extend({
 
             return classes;
         },
-        getTransitionFromColAndRow(col: number, row: number): string {
-            let colAndRow = col - 1 + (row - 1) * this.cols;
-            if (colAndRow > this.transitions.length) {
-                return this.transitions[colAndRow % this.transitions.length];
-            }
-            return this.transitions[colAndRow];
-        },
         showArtModal(content: ArtPortfolioItem) {
             this.$store.commit('setScrollNavigationEnabled', false);
             this.showArtModalContent = content;
@@ -119,7 +109,6 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @import '@/style/Utils.scss';
-@import '@/style/Transitions.scss';
 
 .header-row {
     height: 10vh;
@@ -127,9 +116,6 @@ export default Vue.extend({
 
 .header-col {
     padding: 0.5vh 1vw;
-}
-
-.art-row {
 }
 
 .art-card-col-left {

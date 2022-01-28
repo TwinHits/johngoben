@@ -1,11 +1,10 @@
 <template>
-    <v-card class="art-display-card" elevation="5">
+<Transition name="fade-in" mode="out-in" appear>
+    <v-card v-show="!loading" class="art-display-card" elevation="5">
         <v-row no-gutters>
             <v-col class="art-img-container">
-                <v-skeleton-loader v-show="loading" type="card" class="art-img" />
                 <img
                     class="art-img"
-                    v-show="!loading"
                     :src="fullPath + content.filename"
                     @load="onImgLoad"
                     @click="onImgClick"
@@ -13,11 +12,11 @@
             </v-col>
         </v-row>
         <v-row class="art-img-title text-left" no-gutters align="center">
-            <v-col class="art-img-font" md="auto">
+            <v-col class="art-img-font" :cols="7">
                 {{ content.name }}
             </v-col>
             <v-col>
-                <v-row no-gutters justify="end">
+                <v-row no-gutters justify="start">
                     <v-col class="art-tag" md="auto" v-for="tag in content.tags" :key="tag">
                         <ArtTag :content="tag" />
                     </v-col>
@@ -25,6 +24,7 @@
             </v-col>
         </v-row>
     </v-card>
+</Transition>
 </template>
 
 <script lang="ts">
@@ -67,6 +67,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '@/style/Colors.scss';
 @import '@/style/Utils.scss';
+@import '@/style/Transitions.scss';
 
 .art-display-card {
     background: $foreground;

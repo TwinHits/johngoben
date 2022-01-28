@@ -3,6 +3,25 @@
     transition: all 1s;
 }
 
+/* Fade In */
+.fade-in-enter-active,
+.fade-in-leave-active {
+    transition: all 1.2s;
+}
+
+.fade-in-enter,
+.fade-in-right-leave-to {
+    opacity: 0;
+}
+
+.fade-in-leave {
+    opacity: 1;
+}
+
+.fade-in-enter-to {
+    opacity: 1;
+}
+
 /* Slide Right */
 .slide-right-enter-active,
 .slide-right-leave-active {
