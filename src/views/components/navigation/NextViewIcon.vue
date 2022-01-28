@@ -4,7 +4,7 @@
             <v-col md="auto">
                 <Transition :name="transition" mode="out-in">
                     <v-card class="next-view-icon-card" @click="changeView" v-show="hover">
-                        <v-icon color="black" :size="size">{{ icon }}</v-icon>
+                        <v-icon color="#263238" :size="size">{{ icon }}</v-icon>
                     </v-card>
                 </Transition>
             </v-col>

@@ -1,5 +1,5 @@
 <template>
-    <v-list dense nav class="elevation-0 max-height">
+    <v-list nav class="nav-item-list max-height">
         <transition-group name="list-move">
             <NavigationItem v-for="item of navItems" :key="item.title" :item="item" :active="activeItem === item" />
         </transition-group>
@@ -63,4 +63,8 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import '@/style/Transitions.scss';
+
+.nav-item-list {
+    margin-top: 10vh;
+}
 </style>

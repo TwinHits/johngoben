@@ -76,7 +76,6 @@ export default Vue.extend({
 }
 
 .art-img-title {
-    text-align: center;
     word-break: break-word;
     padding-left: 0.75vw;
     padding-top: 0.75vh;
@@ -84,7 +83,7 @@ export default Vue.extend({
 }
 
 .art-img-font {
-    color: $text;
+    color: $dark-text;
     font-weight: bold;
 }
 

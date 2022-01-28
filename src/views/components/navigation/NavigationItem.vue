@@ -1,5 +1,5 @@
 <template>
-    <v-list-item @click="goToRoute(item.route)">
+    <v-list-item class="nav-item" @click="goToRoute(item.route)">
         <v-list-item-content class="text-left">
             <v-list-item-title>
                 <Transition mode="out-in" name="fade-in">
@@ -38,17 +38,24 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/style/Colors.scss';
+
+.nav-item {
+    height: 23vh;
+}
+
 .nav-item-title {
-    font-size: 0.9em;
-    padding-left: 4vw;
+    font-size: 5vh;
+    padding-left: 1vw;
     transition: font-size 0.7s, padding-left 0.7s;
+    color: $light-text;
 }
 
 .nav-item-active {
-    font-size: 1.4em;
+    font-size: 6.5vh;
     font-weight: bold;
-    padding-left: 6vw;
+    padding-left: 3.5vw;
     transition: font-size 0.7s, padding-left 0.7s;
 }
 </style>

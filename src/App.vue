@@ -64,18 +64,19 @@ export default Vue.extend({
     font-family: "Anaheim", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: $text !important;
+    color: $dark-text !important;
 }
 
 .nav-drawer {
-    background: $foreground !important;
-    z-index: 5;
-    box-shadow: -4px 0px 10px black;
+    background: $background !important;
+    z-index: 2;
+    //box-shadow: -4px 0px 10px #263238;
 }
 
 .container {
     padding: 0;
     background-color: $background;
+    min-width: 100%;
 }
 
 </style>
