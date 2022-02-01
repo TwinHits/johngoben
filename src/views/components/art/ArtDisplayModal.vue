@@ -2,7 +2,7 @@
     <v-dialog v-model="show" width="unset">
         <v-card class="art-display-card">
             <v-btn class="close-icon-button" color="#90A4AE" icon medium elevation="4">
-                <v-icon color="#263238" size="35">mdi-window-close</v-icon>
+                <v-icon color="#263238" size="35" @click="show = false">mdi-window-close</v-icon>
             </v-btn>
             <v-row no-gutters>
                 <v-col class="art-img-container" align="center">
@@ -55,9 +55,6 @@ export default Vue.extend({
     methods: {
         onImgLoad() {
             this.loading = false;
-        },
-        onTagClick(tag: string) {
-            this.$emit('tagClick', tag);
         },
         onClose() {
             this.$emit('close');

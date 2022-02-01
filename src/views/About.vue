@@ -1,20 +1,23 @@
 <template>
     <v-row class="full-height" no-gutters>
-        <v-col cols="3" class="info-col-left info-col">
+        <v-col cols="4" class="info-col-left info-col">
             <Transition name="slide-right" mode="out-in">
-                <v-card v-show="show" elevation="3" class="info-card full-height">
+                <v-card v-show="show" elevation="5" class="info-card full-height">
                     <v-card-title> Hello! </v-card-title>
                     <v-card-subtitle> My name's John </v-card-subtitle>
                     <v-card-text> And I'm a huge nerd, big picture </v-card-text>
                 </v-card>
             </Transition>
         </v-col>
-        <v-col cols="9">
+        <v-col cols="8">
             <v-row no-gutters class="half-height">
                 <v-hover v-slot="{ hover }">
-                    <v-col class="info-col-right info-col-top" :class="{ 'info-col-hover': hover }">
+                    <v-col
+                        class="info-col info-col-right info-col-top"
+                        :class="{ 'info-col-hover info-col-right-hover info-col-top-hover': hover }"
+                    >
                         <Transition name="slide-left" mode="out-in">
-                            <v-card v-show="show" elevation="0" class="info-card full-height" @click="navigateToCode()">
+                            <v-card v-show="show" elevation="5" class="info-card full-height" @click="navigateToCode()">
                                 <v-card-title> Code </v-card-title>
                                 <v-card-subtitle> I am this person generally </v-card-subtitle>
                                 <v-card-text> I do these specific things </v-card-text> </v-card
@@ -25,9 +28,12 @@
             </v-row>
             <v-row no-gutters class="half-height">
                 <v-hover v-slot="{ hover }">
-                    <v-col class="info-col-right info-col-bottom" :class="{ 'info-col-hover': hover }">
+                    <v-col
+                        class="info-col info-col-right info-col-bottom"
+                        :class="{ 'info-col-hover info-col-right-hover info-col-bottom-hover': hover }"
+                    >
                         <Transition name="slide-up" mode="out-in">
-                            <v-card v-show="show" elevation="0" class="info-card full-height" @click="navigateToArt()">
+                            <v-card v-show="show" elevation="5" class="info-card full-height" @click="navigateToArt()">
                                 <v-card-title> Art </v-card-title>
                                 <v-card-subtitle> My Work </v-card-subtitle>
                                 <v-card-text>
@@ -85,27 +91,23 @@ export default Vue.extend({
     padding-top: 2vw;
     padding-bottom: 2vw;
     padding-right: 2vw;
-    transition: padding-right 1.2s, padding-left 1.2s, padding-top 1.2s, padding-bottom 1.2s;
+    transition: padding-right 0.2s, padding-left 0.2s, padding-top 0.2s, padding-bottom 0.2s;
 }
 
 .info-col-left {
-    padding-left: 2vw;
     padding-right: 1vw;
 }
 
 .info-col-right {
     padding-left: 1vw;
-    padding-right: 2vw;
 }
 
 .info-col-top {
-    padding-top: 2vw;
     padding-bottom: 1vw;
 }
 
 .info-col-bottom {
     padding-top: 1vw;
-    padding-bottom: 2vw;
 }
 
 .info-col-hover {
@@ -113,5 +115,21 @@ export default Vue.extend({
     padding-top: 1vw;
     padding-bottom: 1vw;
     padding-right: 1vw;
+}
+
+.info-col-left-hover {
+    padding-right: 0vw;
+}
+
+.info-col-right-hover {
+    padding-left: 0vw;
+}
+
+.info-col-top-hover {
+    padding-bottom: 0vw;
+}
+
+.info-col-bottom-hover {
+    padding-top: 0vw;
 }
 </style>

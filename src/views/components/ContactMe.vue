@@ -57,8 +57,8 @@ export default Vue.extend({
 .contact-me {
     background: $super-foreground;
     position: fixed;
-    bottom: 2vh;
-    right: 1vw;
+    bottom: 1.25vh;
+    right: 0.5vw;
     min-width: 6.9vw;
     min-height: 6.5vh;
     transition: min-width 1s, min-height 1s;
