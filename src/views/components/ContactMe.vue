@@ -40,7 +40,7 @@ export default Vue.extend({
         setShow(show: boolean) {
             if (show) {
                 this.showFull = show;
-                setTimeout(() => (this.showText = show), 1000);
+                setTimeout(() => (this.showText = show), 700);
             } else {
                 setTimeout(() => (this.showFull = show), 100);
                 this.showText = show;
@@ -61,7 +61,7 @@ export default Vue.extend({
     right: 0.5vw;
     min-width: 6.9vw;
     min-height: 6.5vh;
-    transition: min-width 1s, min-height 1s;
+    transition: min-width .8s, min-height .8s;
 }
 
 .contact-me-full {

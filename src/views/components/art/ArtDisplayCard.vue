@@ -1,17 +1,17 @@
 <template>
     <Transition name="fade-in" mode="out-in" appear>
-        <v-card v-show="!loading" class="art-display-card" elevation="5">
-            <v-row no-gutters>
-                <v-col class="art-img-container">
-                    <img class="art-img" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick" />
+d        <v-card v-show="true || !loading" class="art-display-card" elevation="5">
+            <v-row class="art-img-container-row" no-gutters align="center" justify="middle">
+                <v-col class="art-img-container-col">
+                    <v-img class="art-img" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick" contain aspect-ratio="1" max-height="39vh"/>
                 </v-col>
             </v-row>
-            <v-row class="art-img-title text-left" no-gutters align="center">
-                <v-col class="art-img-font" :cols="7">
+            <v-row class="art-img-footer-row text-left" no-gutters align="center">
+                <v-col class="art-img-font">
                     {{ content.name }}
                 </v-col>
                 <v-col>
-                    <v-row no-gutters justify="start">
+                    <v-row no-gutters justify="end">
                         <v-col class="art-tag" md="auto" v-for="tag in content.tags" :key="tag">
                             <ArtTag :content="tag" />
                         </v-col>
@@ -68,7 +68,7 @@ export default Vue.extend({
     background: $foreground;
 }
 
-.art-img-title {
+.art-img-footer-row {
     word-break: break-word;
     padding-left: 0.75vw;
     padding-top: 0.75vh;
@@ -80,10 +80,8 @@ export default Vue.extend({
     font-weight: bold;
 }
 
-.art-img {
-    padding: 1vh 0.5vw 0 0.5vw;
-    width: 100%;
-    height: 100%;
+.art-img-container-col {
+    margin: .25vh .25vw;
 }
 
 .art-tag {

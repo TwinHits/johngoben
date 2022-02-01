@@ -2,7 +2,7 @@
     <v-row no-gutters ref="artContainer">
         <v-col v-if="art.length">
             <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
-                <v-col v-for="col in cols" :key="col" :class="getClassFromCol((row - 1) * cols + col)">
+                <v-col v-for="col in cols" :key="col" class="art-card-col" :class="getClassFromCol((row - 1) * cols + col)">
                     <ArtDisplayCard
                         v-if="filteredArt[(row - 1) * cols + col - 1]"
                         :content="filteredArt[(row - 1) * cols + col - 1]"
@@ -109,14 +109,6 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @import '@/style/Utils.scss';
-
-.header-row {
-    height: 10vh;
-}
-
-.header-col {
-    padding: 0.5vh 1vw;
-}
 
 .art-card-col-left {
     padding-left: 2vw !important;

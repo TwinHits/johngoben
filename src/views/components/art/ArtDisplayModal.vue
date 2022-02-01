@@ -69,7 +69,7 @@ export default Vue.extend({
 @import '@/style/Utils.scss';
 
 .art-display-card {
-    background: $foreground;
+    background: $background;
 }
 
 .close-icon-button {
