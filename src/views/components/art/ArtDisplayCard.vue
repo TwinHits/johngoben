@@ -81,7 +81,6 @@ export default Vue.extend({
 }
 
 .art-img-container-col {
-    margin: .25vh .25vw;
 }
 
 .art-tag {
