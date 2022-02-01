@@ -1,6 +1,12 @@
 <template>
     <v-row no-gutters ref="artContainer">
         <v-col v-if="art.length">
+            <v-row justify="center" align="center" class="copyright-row" no-gutters>
+                <v-col class="text-center">
+                    All works © John Goben unless otherwise noted. Reproduction prohibited without expressed written
+                    consent.
+                </v-col>
+            </v-row>
             <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
                 <v-col
                     v-for="col in cols"
@@ -113,7 +119,15 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+@import '@/style/Colors.scss';
 @import '@/style/Utils.scss';
+
+.copyright-row {
+    padding-top: 0.75vh;
+    font-size: 0.8em;
+    color: $text-light;
+    text-shadow: 1px 1px 10px $text-dark;
+}
 
 .art-card-col-left {
     padding-left: 2vw !important;
