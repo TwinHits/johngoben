@@ -46,7 +46,7 @@ export default Vue.extend({
 }
 
 .nav-item-title {
-    font-size: 5vh;
+    font-size: 4vh;
     padding-left: 1vw;
     transition: font-size 0.7s, padding-left 0.7s;
     color: $text-light;
