@@ -2,7 +2,12 @@
     <v-row no-gutters ref="artContainer">
         <v-col v-if="art.length">
             <v-row v-for="row in rows" :key="row" class="art-row" no-gutters>
-                <v-col v-for="col in cols" :key="col" class="art-card-col" :class="getClassFromCol((row - 1) * cols + col)">
+                <v-col
+                    v-for="col in cols"
+                    :key="col"
+                    class="art-card-col"
+                    :class="getClassFromCol((row - 1) * cols + col)"
+                >
                     <ArtDisplayCard
                         v-if="filteredArt[(row - 1) * cols + col - 1]"
                         :content="filteredArt[(row - 1) * cols + col - 1]"
