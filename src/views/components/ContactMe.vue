@@ -61,7 +61,7 @@ export default Vue.extend({
     right: 1vw;
     min-width: 6.9vw;
     min-height: 6.5vh;
-    transition: min-width 1.2s, min-height 1.2s;
+    transition: min-width 1s, min-height 1s;
 }
 
 .contact-me-full {

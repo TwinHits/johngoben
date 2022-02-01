@@ -8,15 +8,15 @@ export const NAVIGATION_ITEMS = [
         },
     },
     {
-        title: 'Code',
-        route: {
-            name: 'Code',
-        },
-    },
-    {
         title: 'Art',
         route: {
             name: 'Art',
+        },
+    },
+    {
+        title: 'Code',
+        route: {
+            name: 'Code',
         },
     },
 ] as NavItem[];
