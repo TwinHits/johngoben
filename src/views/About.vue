@@ -62,10 +62,10 @@ export default Vue.extend({
             setTimeout(() => (this.show = true), (delay += step));
         },
         navigateToCode() {
-            this.$router.push("Code");
+            this.$router.push('Code');
         },
         navigateToArt() {
-            this.$router.push("Art");
+            this.$router.push('Art');
         },
     },
 });

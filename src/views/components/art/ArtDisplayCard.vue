@@ -1,30 +1,25 @@
 <template>
-<Transition name="fade-in" mode="out-in" appear>
-    <v-card v-show="!loading" class="art-display-card" elevation="5">
-        <v-row no-gutters>
-            <v-col class="art-img-container">
-                <img
-                    class="art-img"
-                    :src="fullPath + content.filename"
-                    @load="onImgLoad"
-                    @click="onImgClick"
-                />
-            </v-col>
-        </v-row>
-        <v-row class="art-img-title text-left" no-gutters align="center">
-            <v-col class="art-img-font" :cols="7">
-                {{ content.name }}
-            </v-col>
-            <v-col>
-                <v-row no-gutters justify="start">
-                    <v-col class="art-tag" md="auto" v-for="tag in content.tags" :key="tag">
-                        <ArtTag :content="tag" />
-                    </v-col>
-                </v-row>
-            </v-col>
-        </v-row>
-    </v-card>
-</Transition>
+    <Transition name="fade-in" mode="out-in" appear>
+        <v-card v-show="!loading" class="art-display-card" elevation="5">
+            <v-row no-gutters>
+                <v-col class="art-img-container">
+                    <img class="art-img" :src="fullPath + content.filename" @load="onImgLoad" @click="onImgClick" />
+                </v-col>
+            </v-row>
+            <v-row class="art-img-title text-left" no-gutters align="center">
+                <v-col class="art-img-font" :cols="7">
+                    {{ content.name }}
+                </v-col>
+                <v-col>
+                    <v-row no-gutters justify="start">
+                        <v-col class="art-tag" md="auto" v-for="tag in content.tags" :key="tag">
+                            <ArtTag :content="tag" />
+                        </v-col>
+                    </v-row>
+                </v-col>
+            </v-row>
+        </v-card>
+    </Transition>
 </template>
 
 <script lang="ts">
