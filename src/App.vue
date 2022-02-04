@@ -37,6 +37,7 @@ export default Vue.extend({
     },
     methods: {
         handleWheelScroll(event: WheelEvent) {
+            /*
             let nextRoute;
             if (event.deltaY < 0 && window.scrollY === 0) {
                 nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, -1);
@@ -53,6 +54,7 @@ export default Vue.extend({
             if (nextRoute) {
                 this.$router.push(nextRoute.route);
             }
+            */
         },
     },
 });

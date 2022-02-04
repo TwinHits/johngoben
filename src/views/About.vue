@@ -17,16 +17,7 @@
                         :class="{ 'info-col-hover info-col-right-hover info-col-top-hover': hover }"
                     >
                         <Transition name="slide-left" mode="out-in">
-                            <v-card v-show="show" elevation="5" class="info-card full-height" @click="navigateToCode()">
-                                <v-card-text class="about-card-content">
-                                    <v-row>
-                                        <v-col class="about-title">Code</v-col>
-                                    </v-row>
-                                    <v-row class="about-text-container">
-                                        <v-col class="about-text"> </v-col>
-                                    </v-row>
-                                </v-card-text>
-                            </v-card>
+                            <AboutCodeCard v-show="show" class="info-card full-height" />
                         </Transition>
                     </v-col>
                 </v-hover>
@@ -51,10 +42,12 @@
 import Vue from 'vue';
 
 import AboutArtCard from '@/views/components/about/AboutArtCard.vue';
+import AboutCodeCard from '@/views/components/about/AboutCodeCard.vue';
 
 export default Vue.extend({
     components: {
         AboutArtCard,
+        AboutCodeCard,
     },
     data() {
         return {

@@ -10,13 +10,15 @@
                         <v-row>
                             <v-col>
                                 <v-row>
-                                    <v-col class="about-card-text"> I draw fantasy maps for games and friends. </v-col>
+                                    <v-col class="about-card-text">
+                                        I also draw fantasy maps for games and friends.
+                                    </v-col>
                                 </v-row>
                                 <v-row>
                                     <v-col class="about-card-text">
                                         Check out my work:
                                         <ul class="art-unordered-list">
-                                            <li>Dungeons and Dragons Encounter Maps</li>
+                                            <li>Dungeons & Dragons Encounter Maps</li>
                                             <li>GTKRadient Multiplayer Maps</li>
                                             <li>Set Design</li>
                                         </ul>
