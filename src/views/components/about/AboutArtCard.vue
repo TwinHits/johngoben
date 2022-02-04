@@ -43,7 +43,7 @@
                             <v-carousel-item
                                 v-for="item in artItems"
                                 :key="item.filename"
-                                :src="artFullPath + item.filename"
+                                :src="artClipPath + item.filename"
                                 transition="slide-x-transition"
                             ></v-carousel-item>
                         </v-carousel>
@@ -64,13 +64,10 @@ export default Vue.extend({
     data() {
         return {
             artItems: Art.ART_FILENAMES as ArtPortfolioItem[],
-            artFullPath: Art.ART_FULL_PATH as string,
+            artClipPath: Art.ART_CLIP_PATH as string,
         };
     },
     methods: {
-        navigateToCode() {
-            this.$router.push('Code');
-        },
         navigateToArt() {
             this.$router.push('Art');
         },

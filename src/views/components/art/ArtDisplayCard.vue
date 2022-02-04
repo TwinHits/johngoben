@@ -6,12 +6,12 @@
                 <v-col class="art-img-container-col">
                     <v-img
                         class="art-img"
-                        :src="fullPath + content.filename"
+                        :src="clippath + content.filename"
                         @load="onImgLoad"
                         @click="onImgClick"
                         contain
                         aspect-ratio="1"
-                        max-height="39vh"
+                        max-height="38.5vh"
                     />
                 </v-col>
             </v-row>
@@ -53,7 +53,6 @@ export default Vue.extend({
     data() {
         return {
             loading: true,
-            fullPath: Art.ART_FULL_PATH as string,
             clippath: Art.ART_CLIP_PATH as string,
         };
     },
