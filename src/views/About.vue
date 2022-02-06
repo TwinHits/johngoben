@@ -5,7 +5,18 @@
                 <v-card v-show="show" elevation="5" class="info-card full-height">
                     <v-card-title class="about-title"> Hello! </v-card-title>
                     <v-card-subtitle class="about-subtitle"> My name's John </v-card-subtitle>
-                    <v-card-text class="about-text"> And I'm a huge nerd, big picture </v-card-text>
+                    <v-card-text class="about-text">
+                        Named after this website, John is a Software Engineer with a possibly unhealthy number of
+                        interests mostly revolving around various different types of media. Here you can find:
+                        <br />
+                        Posts mostly about video games and Star Wars
+                        <br />
+                        Shameless showing off of things I made out of C++
+                        <br />
+                        Production, level, and world design art portfolio
+                        <br />
+                        Stories not actually about Star Wars
+                    </v-card-text>
                 </v-card>
             </Transition>
         </v-col>
@@ -79,8 +90,8 @@ export default Vue.extend({
 
 .info-col {
     padding-left: 2vw;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     padding-right: 2vw;
     transition: padding-right 0.2s, padding-left 0.2s, padding-top 0.2s, padding-bottom 0.2s;
 }
@@ -94,17 +105,17 @@ export default Vue.extend({
 }
 
 .info-col-top {
-    padding-bottom: 1vw;
+    padding-bottom: 1vh;
 }
 
 .info-col-bottom {
-    padding-top: 1vw;
+    padding-top: 1vh;
 }
 
 .info-col-hover {
     padding-left: 1vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     padding-right: 1vw;
     border-radius: 200px;
 }
@@ -118,10 +129,10 @@ export default Vue.extend({
 }
 
 .info-col-top-hover {
-    padding-bottom: 0vw;
+    padding-bottom: 0vh;
 }
 
 .info-col-bottom-hover {
-    padding-top: 0vw;
+    padding-top: 0vh;
 }
 </style>
