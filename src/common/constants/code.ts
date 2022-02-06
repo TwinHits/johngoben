@@ -4,7 +4,7 @@ export const CODE_LOGOS_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazon
 
 export const WORK_LOGOS = [
     {
-        name: 'GetWell',
+        name: 'GetWellNetwork, Inc',
         filename: 'getwell.svg',
     },
     {

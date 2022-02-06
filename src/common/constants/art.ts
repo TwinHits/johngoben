@@ -25,8 +25,8 @@ export const ART_FILENAMES = [
         tags: ['D&D', 'Digital', 'Isometric'],
     },
     {
-        name: "Ruined Dragon's Court",
-        filename: 'ruinedcourt.jpg',
+        name: 'Abandoned Farmhouse',
+        filename: 'farmhouse.jpg',
         tags: ['D&D', 'Pen & Paper', 'Isometric'],
     },
     {
@@ -57,8 +57,8 @@ export const ART_FILENAMES = [
         tags: ['D&D', 'Pen & Paper', 'Isometric'],
     },
     {
-        name: 'Abandoned Farmhouse',
-        filename: 'farmhouse.jpg',
+        name: "Ruined Dragon's Court",
+        filename: 'ruinedcourt.jpg',
         tags: ['D&D', 'Pen & Paper', 'Isometric'],
     },
     {

@@ -1,39 +1,45 @@
 <template>
     <v-card elevation="5" @click="navigateToCode()">
-        <!--v-hover v-slot="{ hover }"-->
         <v-card-text class="about-card-content">
             <v-row no-gutters>
                 <v-col>
                     <v-row>
                         <v-col class="about-card-title">Code</v-col>
                     </v-row>
-                    <v-row>
+                    <v-row no-gutter>
                         <v-col>
-                            <v-row>
+                            <v-row no-gutters>
                                 <v-col class="about-card-subtitle text-center code-subtitle">
                                     I write code using these languages and tools
                                 </v-col>
                             </v-row>
                             <v-row class="language-row" justify="space-between" align="center">
                                 <v-col class="language-col" v-for="logo in languageAndToolLogos" :key="logo.name">
-                                    <v-img
-                                        :src="codeLogosPaths + logo.filename"
-                                        contain
-                                        aspect-ratio="1"
-                                        max-height="7vh"
-                                    />
+                                    <v-row no-gutters>
+                                        <v-col>
+                                            <v-img
+                                                class="logo-img"
+                                                :src="codeLogosPaths + logo.filename"
+                                                contain
+                                                aspect-ratio="1"
+                                            />
+                                        </v-col>
+                                    </v-row>
+                                    <v-row class="text-center" align="center" justify="center">
+                                        <v-col>{{ logo.name }}</v-col>
+                                    </v-row>
                                 </v-col>
                             </v-row>
                         </v-col>
                     </v-row>
-                    <v-row>
+                    <v-row no-gutters>
                         <v-col cols="6">
-                            <v-row>
+                            <v-row no-gutters>
                                 <v-col class="about-card-subtitle text-center code-subtitle"
                                     >For these cool companies</v-col
                                 >
                             </v-row>
-                            <v-row class="work-row" justify="space-around" align="top">
+                            <v-row class="work-row" justify="space-around">
                                 <v-col
                                     v-for="logo in workLogos"
                                     :key="logo.name"
@@ -41,28 +47,34 @@
                                     :class="{ 'get-well': logo.name === 'GetWell' }"
                                 >
                                     <v-img
+                                        class="logo-img"
                                         :src="codeLogosPaths + logo.filename"
                                         contain
                                         aspect-ratio="1"
-                                        max-height="8vh"
                                     />
+                                    <v-row class="text-center" align="center" justify="center"
+                                        ><v-col>{{ logo.name }}</v-col></v-row
+                                    >
                                 </v-col>
                             </v-row>
                         </v-col>
                         <v-col cols="6">
-                            <v-row>
+                            <v-row no-gutters>
                                 <v-col class="about-card-subtitle text-center code-subtitle"
                                     >And for my own projects</v-col
                                 >
                             </v-row>
-                            <v-row justify="center" align="top">
+                            <v-row justify="center">
                                 <v-col v-for="logo in projectLogos" :key="logo.name" :cols="4">
                                     <v-img
+                                        class="logo-img"
                                         :src="codeLogosPaths + logo.filename"
                                         contain
                                         aspect-ratio="1"
-                                        max-height="9vh"
                                     />
+                                    <v-row class="text-center" align="center" justify="center"
+                                        ><v-col>{{ logo.name }}</v-col></v-row
+                                    >
                                 </v-col>
                             </v-row>
                         </v-col>
@@ -70,7 +82,6 @@
                 </v-col>
             </v-row>
         </v-card-text>
-        <!--/v-hover-->
     </v-card>
 </template>
 
@@ -108,12 +119,17 @@ export default Vue.extend({
 @import '@/style/Colors.scss';
 @import '@/style/components/AboutCard.scss';
 
+.logo-img {
+    max-height: 6vh;
+}
+
 .code-subtitle {
     font-size: 1.4em;
 }
 
 .language-row {
-    padding: 0 3;
+    padding: 0 3vw;
+    margin-bottom: 1vh;
 }
 
 .work-row {
