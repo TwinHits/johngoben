@@ -42,19 +42,16 @@ export const LANGUAGE_LOGOS = [
 
 export const TOOL_LOGOS = [
     {
+        name: 'Vue.js',
+        filename: 'vue.png',
+    },
+    {
         name: 'AWS',
         filename: 'aws.png',
     },
-] as CodeLogo[];
-
-export const LIBRARY_LOGOS = [
     {
         name: 'Spring',
         filename: 'spring.png',
-    },
-    {
-        name: 'Vue.js',
-        filename: 'vue.png',
     },
 ] as CodeLogo[];
 
