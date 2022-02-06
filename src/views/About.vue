@@ -2,22 +2,7 @@
     <v-row class="full-height" no-gutters>
         <v-col cols="4" class="info-col-left info-col">
             <Transition name="slide-right" mode="out-in">
-                <v-card v-show="show" elevation="5" class="info-card full-height">
-                    <v-card-title class="about-title"> Hello! </v-card-title>
-                    <v-card-subtitle class="about-subtitle"> My name's John </v-card-subtitle>
-                    <v-card-text class="about-text">
-                        Named after this website, John is a Software Engineer with a possibly unhealthy number of
-                        interests mostly revolving around various different types of media. Here you can find:
-                        <br />
-                        Posts mostly about video games and Star Wars
-                        <br />
-                        Shameless showing off of things I made out of C++
-                        <br />
-                        Production, level, and world design art portfolio
-                        <br />
-                        Stories not actually about Star Wars
-                    </v-card-text>
-                </v-card>
+                <AboutAboutCard v-show="show" class="info-card full-height" />
             </Transition>
         </v-col>
         <v-col cols="8">
@@ -52,11 +37,13 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import AboutAboutCard from '@/views/components/about/AboutAboutCard.vue';
 import AboutArtCard from '@/views/components/about/AboutArtCard.vue';
 import AboutCodeCard from '@/views/components/about/AboutCodeCard.vue';
 
 export default Vue.extend({
     components: {
+        AboutAboutCard,
         AboutArtCard,
         AboutCodeCard,
     },
