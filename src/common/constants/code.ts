@@ -49,10 +49,6 @@ export const TOOL_LOGOS = [
         name: 'AWS',
         filename: 'aws.png',
     },
-    {
-        name: 'Spring',
-        filename: 'spring.png',
-    },
 ] as CodeLogo[];
 
 export const PROJECT_LOGOS = [
@@ -65,7 +61,7 @@ export const PROJECT_LOGOS = [
         filename: 'portfolio.png',
     },
     {
-        name: 'DocsBay94',
+        name: 'Docs Bay 94',
         filename: 'docsbay94.png',
     },
 ];

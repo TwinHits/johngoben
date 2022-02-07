@@ -43,6 +43,4 @@ export default Vue.extend({
     background: $super-foreground;
 }
 
-.logo-img {
-}
 </style>

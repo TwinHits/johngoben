@@ -25,7 +25,7 @@
                                             />
                                         </v-col>
                                     </v-row>
-                                    <v-row class="text-center" align="center" justify="center">
+                                    <v-row v-if="showName" class="text-center" align="center" justify="center">
                                         <v-col>{{ logo.name }}</v-col>
                                     </v-row>
                                 </v-col>
@@ -44,7 +44,7 @@
                                     v-for="logo in workLogos"
                                     :key="logo.name"
                                     :cols="5"
-                                    :class="{ 'get-well': logo.name === 'GetWell' }"
+                                    :class="{ 'get-well': logo.name === 'GetWellNetwork, Inc' }"
                                 >
                                     <v-img
                                         class="logo-img"
@@ -52,7 +52,7 @@
                                         contain
                                         aspect-ratio="1"
                                     />
-                                    <v-row class="text-center" align="center" justify="center"
+                                    <v-row  v-if="showName" class="text-center" align="center" justify="center"
                                         ><v-col>{{ logo.name }}</v-col></v-row
                                     >
                                 </v-col>
@@ -64,17 +64,18 @@
                                     >And for my own projects</v-col
                                 >
                             </v-row>
-                            <v-row justify="center">
+                            <v-row class="work-row" justify="center">
                                 <v-col v-for="logo in projectLogos" :key="logo.name" :cols="4">
                                     <v-img
                                         class="logo-img"
+                                        :class="{ 'docs-bay': logo.name === 'johngoben' }"
                                         :src="codeLogosPaths + logo.filename"
                                         contain
                                         aspect-ratio="1"
                                     />
-                                    <v-row class="text-center" align="center" justify="center"
-                                        ><v-col>{{ logo.name }}</v-col></v-row
-                                    >
+                                    <v-row  v-if="showName" class="text-center" align="center" justify="center">
+                                        <v-col>{{ logo.name }}</v-col>
+                                    </v-row>
                                 </v-col>
                             </v-row>
                         </v-col>
@@ -95,6 +96,7 @@ import * as Code from '@/common/constants/code';
 export default Vue.extend({
     data() {
         return {
+            showName: false,
             codeLogosPaths: Code.CODE_LOGOS_PATH as string,
             languageLogos: Code.LANGUAGE_LOGOS as CodeLogo[],
             toolLogos: Code.TOOL_LOGOS as CodeLogo[],
@@ -120,7 +122,7 @@ export default Vue.extend({
 @import '@/style/components/AboutCard.scss';
 
 .logo-img {
-    max-height: 6vh;
+    max-height: 12vh;
 }
 
 .code-subtitle {
@@ -129,7 +131,8 @@ export default Vue.extend({
 
 .language-row {
     padding: 0 3vw;
-    margin-bottom: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
 }
 
 .work-row {
@@ -137,6 +140,6 @@ export default Vue.extend({
 }
 
 .get-well {
-    padding-top: 2.25vh;
+    padding-top: 2.5vh;
 }
 </style>
