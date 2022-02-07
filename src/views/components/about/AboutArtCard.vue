@@ -10,7 +10,7 @@
                         <v-row>
                             <v-col>
                                 <v-row>
-                                    <v-col class="about-card-text">
+                                    <v-col class="about-card-subtitle about-card-text">
                                         I also draw fantasy maps for games and friends.
                                     </v-col>
                                 </v-row>
