@@ -13,6 +13,9 @@
             Production, level, and world design art portfolio
             <br />
             Stories not actually about Star Wars
+            <br />
+            <br />
+            EDUCATION
         </v-card-text>
     </v-card>
 </template>

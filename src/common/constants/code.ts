@@ -1,4 +1,4 @@
-import { CodeLogo } from '@/common/types/code';
+import { CodeLogo, CodeCardItem, Proficiency, CodeSkill, CodeSkillsItem } from '@/common/types/code';
 
 export const CODE_LOGOS_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazonaws.com/code/logos/';
 
@@ -110,7 +110,7 @@ export const WORK_DESCRIPTIONS = [
             'Trained new team members on internal process and tools like Agile, Git, and JIRA',
         ],
     },
-];
+] as CodeCardItem[];
 
 export const PROJECT_DESCRIPTIONS = [
     {
@@ -133,8 +133,8 @@ export const PROJECT_DESCRIPTIONS = [
         description: [
             "You're here now! Welcome 😊",
             'This website was created using Vue.js, JavaScript, and hosted using AWS.',
-            "It's development is supported with Vuetify, TypeScript, Prettier, SASS, ESLint, Material Design, and FontAwesome.",
-            'It was designed from scratch after several iterations and valuable feedback sessions with interested partners.',
+            'Development was supported with Vuetify, TypeScript, Prettier, SASS, ESLint, Material Design, and FontAwesome.',
+            'Designed from scratch after several iterations and valuable feedback sessions with interested partners.',
         ],
     },
     {
@@ -148,4 +148,142 @@ export const PROJECT_DESCRIPTIONS = [
             'Written in JavaScript with TypeScript using Vue.js and Vuetify.',
         ],
     },
-];
+] as CodeCardItem[];
+
+export const SKILL_DESCRIPTIONS = [
+    {
+        title: 'Languages',
+        skills: [
+            {
+                name: 'C++',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'Java',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'JavaScript',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'Python',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'SQL',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'Lua',
+                proficiency: Proficiency.Proficient,
+            },
+            {
+                name: 'C#',
+                proficiency: Proficiency.Proficient,
+            },
+            {
+                name: 'Bash',
+                proficiency: Proficiency.Proficient,
+            },
+        ] as CodeSkill[],
+    },
+    {
+        title: 'Frameworks, Libraries, and Tools',
+        skills: [
+            {
+                name: 'Amazon Web Services',
+                proficiency: Proficiency.Proficient,
+            },
+            {
+                name: 'AWS Lambda',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'SFML',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'Wildfly',
+                proficiency: Proficiency.Proficient,
+            },
+            {
+                name: 'Spring',
+                proficiency: Proficiency.Proficient,
+            },
+            {
+                name: 'JUnit',
+                proficiency: Proficiency.Proficient,
+            },
+            {
+                name: 'Mockito',
+                proficiency: Proficiency.Proficient,
+            },
+            {
+                name: 'Liquibase',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'Node.js',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'MongoDB',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'REST Services',
+                proficiency: Proficiency.Expert,
+            },
+            {
+                name: 'Vue.js',
+                proficiency: Proficiency.Expert,
+            },
+            {
+                name: 'Vuetify',
+                proficiency: Proficiency.Expert,
+            },
+            {
+                name: 'Windows Presentation Framework (WPF)',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'JIRA',
+                proficiency: Proficiency.Expert,
+            },
+            {
+                name: 'Git',
+                proficiency: Proficiency.Expert,
+            },
+            {
+                name: 'Datadog',
+                proficiency: Proficiency.Familiar,
+            },
+            {
+                name: 'GTKRadiant',
+                proficiency: Proficiency.Excellent,
+            },
+        ] as CodeSkill[],
+    },
+    {
+        title: 'Other Expertise',
+        skills: [
+            {
+                name: 'Public Speaking',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'Tabletop Game Master',
+                proficiency: Proficiency.Expert,
+            },
+            {
+                name: 'Level Design',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'Writing',
+                proficiency: Proficiency.Excellent,
+            },
+        ] as CodeSkill[],
+    },
+] as CodeSkillsItem[];

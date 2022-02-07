@@ -1,5 +1,5 @@
 <template>
-    <v-card elevation="5" class="info-card">
+    <v-card elevation="5">
         <v-card-title class="code-card-title">
             <v-row no-gutters justify="space-between" align="center">
                 <v-col md="auto">{{ content.title }}</v-col>

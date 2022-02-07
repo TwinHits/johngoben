@@ -10,7 +10,7 @@
                 <v-slide-group>
                     <v-slide-item class="code-slide-item" v-for="(workDescription, index) in work" :key="index">
                         <Transition name="fade-in" mode="out-in" appear>
-                            <CodeCard :content="workDescription" />
+                            <CodeCard :content="workDescription" class="info-card" />
                         </Transition>
                     </v-slide-item>
                 </v-slide-group>
@@ -26,7 +26,7 @@
                 <v-slide-group>
                     <v-slide-item class="code-slide-item" v-for="(projectDescription, index) in projects" :key="index">
                         <Transition name="fade-in" mode="out-in" appear>
-                            <CodeCard :content="projectDescription" />
+                            <CodeCard :content="projectDescription" class="info-card" />
                         </Transition>
                     </v-slide-item>
                 </v-slide-group>
@@ -38,28 +38,9 @@
             </v-col>
         </v-row>
         <v-row no-gutters justify="space-around">
-            <v-col cols="4" class="info-col info-col-left">
+            <v-col v-for="(skill, index) in skills" :key="index" cols="4" class="info-col info-col-left">
                 <Transition name="fade-in" mode="out-in" appear>
-                    <v-card elevation="5" class="info-card">
-                        <v-card-title class="code-card-title">Languages</v-card-title>
-                        <v-card-text class="code-card-text">Content</v-card-text>
-                    </v-card>
-                </Transition>
-            </v-col>
-            <v-col cols="4" class="info-col">
-                <Transition name="fade-in" mode="out-in" appear>
-                    <v-card elevation="5" class="info-card">
-                        <v-card-title class="code-card-title">Libraries, Frameworks, and Tools</v-card-title>
-                        <v-card-text class="code-card-text">Content</v-card-text>
-                    </v-card>
-                </Transition>
-            </v-col>
-            <v-col cols="4" class="info-col info-col-right">
-                <Transition name="fade-in" mode="out-in" appear>
-                    <v-card elevation="5" class="info-card">
-                        <v-card-title class="code-card-title">Other Expertise</v-card-title>
-                        <v-card-text class="code-card-text">Content</v-card-text>
-                    </v-card>
+                    <CodeSkillsCard :content="skill" class="info-card" />
                 </Transition>
             </v-col>
         </v-row>
@@ -71,18 +52,21 @@ import Vue from 'vue';
 
 import * as Code from '@/common/constants/code';
 
-import { CodeCardItem } from '@/common/types/code';
+import { CodeCardItem, CodeSkillsItem } from '@/common/types/code';
 
 import CodeCard from '@/views/components/code/CodeCard.vue';
+import CodeSkillsCard from '@/views/components/code/CodeSkillsCard.vue';
 
 export default Vue.extend({
     components: {
         CodeCard,
+        CodeSkillsCard,
     },
     data() {
         return {
             work: Code.WORK_DESCRIPTIONS as CodeCardItem[],
             projects: Code.PROJECT_DESCRIPTIONS as CodeCardItem[],
+            skills: Code.SKILL_DESCRIPTIONS as CodeSkillsItem[],
         };
     },
 });
@@ -119,7 +103,7 @@ export default Vue.extend({
 }
 
 .info-card {
-    height: 33vh;
+    min-height: 33vh;
     background: $foreground;
 }
 </style>
