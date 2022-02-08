@@ -9,7 +9,7 @@
     "fix": "npx prettier --write src/**/*",
     "format": "npm run lint && npm run fix",
     "start": "vue-cli-service serve",
-    "deploy": "tsc bin/*.ts lib/*.ts && cdk deploy"
+    "deploy": "npm run build && tsc bin/*.ts lib/*.ts && cdk deploy"
   },
   "bin": {
     "cdk": "bin/cdk.js"

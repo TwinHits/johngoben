@@ -1,9 +1,8 @@
 module.exports = {
-    transpileDependencies: ["vuetify"],
+    transpileDependencies: ['vuetify'],
     css: {
         loaderOptions: {
-            scss: {
-            },
+            scss: {},
         },
     },
 };

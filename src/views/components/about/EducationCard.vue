@@ -42,5 +42,4 @@ export default Vue.extend({
 .education-card {
     background: $super-foreground;
 }
-
 </style>

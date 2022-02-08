@@ -52,7 +52,7 @@
                                         contain
                                         aspect-ratio="1"
                                     />
-                                    <v-row  v-if="showName" class="text-center" align="center" justify="center"
+                                    <v-row v-if="showName" class="text-center" align="center" justify="center"
                                         ><v-col>{{ logo.name }}</v-col></v-row
                                     >
                                 </v-col>
@@ -73,7 +73,7 @@
                                         contain
                                         aspect-ratio="1"
                                     />
-                                    <v-row  v-if="showName" class="text-center" align="center" justify="center">
+                                    <v-row v-if="showName" class="text-center" align="center" justify="center">
                                         <v-col>{{ logo.name }}</v-col>
                                     </v-row>
                                 </v-col>

@@ -2,7 +2,7 @@ import { CodeLogo, CodeCardItem, Proficiency, CodeSkill, CodeSkillsItem } from '
 
 import * as Common from '@/common/constants/common';
 
-export const CODE_LOGOS_PATH = Common.ASSETS_PATH + 'code/logos';
+export const CODE_LOGOS_PATH = Common.ASSETS_PATH + 'code/logos/';
 
 export const WORK_LOGOS = [
     {
