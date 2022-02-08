@@ -3,7 +3,7 @@
         <v-navigation-drawer permanent app class="nav-drawer font-family">
             <LeftNavigation />
         </v-navigation-drawer>
-        <v-content app>
+        <v-content class="content" app>
             <v-container fill-height class="container font-family">
                 <NextViewIcon class="up-next-view-icon" direction="up" />
                 <router-view />
@@ -73,14 +73,17 @@ export default Vue.extend({
 }
 
 .nav-drawer {
+    width: 15vw !important;
     background: $background !important;
     z-index: 2;
-    //box-shadow: -4px 0px 10px #263238;
+}
+
+.content {
+    padding: 0 0 0 15vw !important;
+    width: 100%;
 }
 
 .container {
-    padding: 0;
     background-color: $background;
-    min-width: 100%;
 }
 </style>
