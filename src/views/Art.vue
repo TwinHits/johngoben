@@ -124,7 +124,7 @@ export default Vue.extend({
 
 .copyright-row {
     padding-top: 0.75vh;
-    font-size: 0.8em;
+    font-size: 1.5vh;
     color: $text-light;
     text-shadow: 1px 1px 10px $text-dark;
 }

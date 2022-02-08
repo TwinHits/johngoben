@@ -1,24 +1,24 @@
 <template>
     <Transition name="fade-in" mode="out-in" appear>
         <v-card v-show="true || !loading" class="art-display-card" elevation="5">
-            <v-row class="art-img-container-row" no-gutters align="center" justify="center">
+            <v-row class="art-img-container-row" no-gutters align="top">
                 <v-col class="art-img-container-col">
                     <v-img
                         class="art-img"
                         :src="clippath + content.filename"
                         @load="onImgLoad"
                         @click="onImgClick"
-                        contain
                         aspect-ratio="1"
-                        max-height="38.5vh"
+                        max-width="100%"
+                        max-height="38vh"
                     />
                 </v-col>
             </v-row>
             <v-row class="art-img-footer-row text-left" no-gutters align="center">
-                <v-col class="art-img-font">
+                <v-col class="art-img-font" :cols="6">
                     {{ content.name }}
                 </v-col>
-                <v-col>
+                <v-col :cols="6">
                     <v-row no-gutters justify="end">
                         <v-col class="art-tag" md="auto" v-for="tag in content.tags" :key="tag">
                             <ArtTag :content="tag" />
@@ -73,24 +73,29 @@ export default Vue.extend({
 
 .art-display-card {
     background: $foreground;
+    min-height: 100%;
 }
 
 .art-img-footer-row {
+    height: 5vh;
     word-break: break-word;
-    padding-left: 0.75vw;
-    padding-top: 0.75vh;
-    padding-bottom: 0.75vh;
+}
+
+.art-img {
+    border-radius: 4px 4px 0 0;
 }
 
 .art-img-font {
     color: $text-dark;
     font-weight: bold;
+    font-size: .8vw;
+    padding-left: .5vw;
 }
 
 .art-img-container-col {
 }
 
 .art-tag {
-    padding: 0.25vh 0.25vw;
+    padding: 0.2vh 0.2vw;
 }
 </style>

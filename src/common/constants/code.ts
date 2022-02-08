@@ -185,6 +185,14 @@ export const SKILL_DESCRIPTIONS = [
                 name: 'Bash',
                 proficiency: Proficiency.Proficient,
             },
+            {
+                name: 'HTML',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'CSS',
+                proficiency: Proficiency.Excellent,
+            },
         ] as CodeSkill[],
     },
     {
