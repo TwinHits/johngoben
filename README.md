@@ -1,6 +1,10 @@
 # johngoben
 
+
 ## Project setup
+
+This project requires node v16.13.2.
+
 ```
 npm install
 ```
@@ -10,27 +14,15 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
 ### Lints and fixes files
 ```
-npm run lint
+npm run format
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
 ### Deploy to AWS
+```
 npm run deploy
+```
 
 ### Troubleshooting
 Command '['/opt/awscli/aws', 's3', 'cp', 's3://xxxx.zip', '/tmp/xxxx/xxxxx']' died with <Signals.SIGKILL: 9>.
