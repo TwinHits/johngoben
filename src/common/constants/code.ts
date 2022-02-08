@@ -259,6 +259,10 @@ export const SKILL_DESCRIPTIONS = [
                 name: 'GTKRadiant',
                 proficiency: Proficiency.Excellent,
             },
+            {
+                name: 'GitHub Actions',
+                proficiency: Proficiency.Excellent,
+            },
         ] as CodeSkill[],
     },
     {
