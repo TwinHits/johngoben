@@ -1,7 +1,7 @@
 <template>
     <Transition name="fade-in" mode="out-in" appear>
         <v-card v-show="true || !loading" class="art-display-card" elevation="5">
-            <v-row class="art-img-container-row" no-gutters align="top">
+            <v-row class="art-img-container-row" no-gutters>
                 <v-col class="art-img-container-col">
                     <v-img
                         class="art-img"
