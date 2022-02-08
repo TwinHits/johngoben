@@ -59,4 +59,10 @@ export default Vue.extend({
     padding-left: 3.5vw;
     transition: font-size 0.7s, padding-left 0.7s;
 }
+
+@media only screen and (max-width: 768px) {
+.nav-item {
+    height: 10vh;
+}
+}
 </style>

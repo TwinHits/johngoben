@@ -1,5 +1,5 @@
 <template>
-    <v-list nav class="nav-item-list max-height">
+    <v-list nav class="nav-item-list">
         <transition-group name="list-move">
             <NavigationItem v-for="item of navItems" :key="item.title" :item="item" :active="activeItem === item" />
         </transition-group>

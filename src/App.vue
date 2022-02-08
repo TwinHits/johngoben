@@ -1,7 +1,7 @@
 <template>
     <v-app app>
         <v-navigation-drawer permanent app class="nav-drawer font-family">
-            <LeftNavigation />
+            <Navigation />
         </v-navigation-drawer>
         <v-content class="content" app>
             <v-container fill-height class="container font-family">
@@ -20,20 +20,22 @@ import Vue from 'vue';
 import * as NavigationUtils from '@/common/utils/navigation';
 
 import ContactMe from '@/views/components/ContactMe.vue';
-import LeftNavigation from '@/views/components/navigation/LeftNavigation.vue';
+import Navigation from '@/views/components/navigation/Navigation.vue';
 import NextViewIcon from '@/views/components/navigation/NextViewIcon.vue';
 
 export default Vue.extend({
     components: {
         ContactMe,
-        LeftNavigation,
+        Navigation,
         NextViewIcon,
     },
     created() {
         window.addEventListener('wheel', this.handleWheelScroll);
+        window.addEventListener('resize', this.setMobile);
     },
     destroyed() {
         window.removeEventListener('wheel', this.handleWheelScroll);
+        window.removeEventListener('resize', this.setMobile);
     },
     methods: {
         handleWheelScroll(event: WheelEvent) {
@@ -56,6 +58,9 @@ export default Vue.extend({
             }
             */
         },
+        setMobile(event: Event) {
+           this.$store.commit('setMobile', this.$vuetify.breakpoint.smAndDown);
+        }
     },
 });
 </script>
