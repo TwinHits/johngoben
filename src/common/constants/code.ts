@@ -71,7 +71,7 @@ export const PROJECT_LOGOS = [
 export const WORK_DESCRIPTIONS = [
     {
         title: 'RightEye, LLC',
-        logo: WORK_LOGOS[0],
+        logo: WORK_LOGOS[1],
         subtitle: 'Senior Software Engineer',
         rightSubtitle: 'January, 2020 -> October, 2021',
         description: [
@@ -82,9 +82,9 @@ export const WORK_DESCRIPTIONS = [
     },
     {
         title: 'GetWellNetwork, Inc',
-        logo: WORK_LOGOS[1],
+        logo: WORK_LOGOS[0],
         subtitle: 'Software Engineer',
-        rightSubtitle: 'OBjectober, 2017 -> December, 2019',
+        rightSubtitle: 'October, 2017 -> December, 2019',
         description: [
             'Implemented, and maintained RESTful internal tools and services based on rapidly evolving requirements',
             'Implemented AWS Lambda serverless based central media management and storage system',
@@ -95,7 +95,7 @@ export const WORK_DESCRIPTIONS = [
     },
     {
         title: 'GetWellNetwork, Inc',
-        logo: WORK_LOGOS[1],
+        logo: WORK_LOGOS[0],
         subtitle: 'Senior Content Configuration Specialist',
         rightSubtitle: 'January, 2013 -> October, 2017',
         description: [
@@ -154,7 +154,15 @@ export const SKILL_DESCRIPTIONS = [
         title: 'Languages',
         skills: [
             {
-                name: 'C++',
+                name: 'HTML',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'CSS',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'SQL',
                 proficiency: Proficiency.Excellent,
             },
             {
@@ -162,15 +170,15 @@ export const SKILL_DESCRIPTIONS = [
                 proficiency: Proficiency.Excellent,
             },
             {
-                name: 'JavaScript',
-                proficiency: Proficiency.Excellent,
-            },
-            {
                 name: 'Python',
                 proficiency: Proficiency.Excellent,
             },
             {
-                name: 'SQL',
+                name: 'JavaScript',
+                proficiency: Proficiency.Excellent,
+            },
+            {
+                name: 'C++',
                 proficiency: Proficiency.Excellent,
             },
             {
@@ -185,14 +193,7 @@ export const SKILL_DESCRIPTIONS = [
                 name: 'Bash',
                 proficiency: Proficiency.Proficient,
             },
-            {
-                name: 'HTML',
-                proficiency: Proficiency.Excellent,
-            },
-            {
-                name: 'CSS',
-                proficiency: Proficiency.Excellent,
-            },
+
         ] as CodeSkill[],
     },
     {

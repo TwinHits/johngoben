@@ -5,9 +5,15 @@
                 <span class="code-header">Professional Experience</span>
             </v-col>
         </v-row>
-        <v-row no-gutters>
+        <v-row class="code-card-row" no-gutters>
             <v-col>
-                <v-slide-group>
+                <v-slide-group class="code-card-slide-group">
+                    <template v-slot:next>
+                        <v-icon :size="'8vh'">mdi-chevron-right</v-icon>
+                    </template>
+                    <template v-slot:prev>
+                        <v-icon :size="'8vh'">mdi-chevron-left</v-icon>
+                    </template>
                     <v-slide-item class="code-slide-item" v-for="(workDescription, index) in work" :key="index">
                         <Transition name="fade-in" mode="out-in" appear>
                             <CodeCard :content="workDescription" class="info-card" />
@@ -21,9 +27,15 @@
                 <span class="code-header">Personal Projects</span>
             </v-col>
         </v-row>
-        <v-row no-gutters>
+        <v-row class="code-card-row" no-gutters>
             <v-col>
-                <v-slide-group>
+                <v-slide-group class="code-card-slide-group">
+                    <template v-slot:next>
+                        <v-icon :size="'8vh'">mdi-chevron-right</v-icon>
+                    </template>
+                    <template v-slot:prev>
+                        <v-icon :size="'8vh'">mdi-chevron-left</v-icon>
+                    </template>
                     <v-slide-item class="code-slide-item" v-for="(projectDescription, index) in projects" :key="index">
                         <Transition name="fade-in" mode="out-in" appear>
                             <CodeCard :content="projectDescription" class="info-card" />
@@ -84,9 +96,13 @@ export default Vue.extend({
     text-shadow: 2px 2px 8px $text-dark;
 }
 
+.code-card-slide-group > .v-icon.v-icon {
+    color: red !important;
+}
+
 .code-slide-item {
     margin: 0 1vw;
-    width: 36vw;
+    width: 35vw
 }
 
 .info-col {
