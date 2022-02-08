@@ -1,7 +1,9 @@
 import { ArtPortfolioItem } from '@/common/types/art';
 
-export const ART_FULL_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazonaws.com/art/full/';
-export const ART_CLIP_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazonaws.com/art/clips/';
+import * as Common from '@/common/constants/common';
+
+export const ART_FULL_PATH = Common.ASSETS_PATH + 'art/full/';
+export const ART_CLIP_PATH = Common.ASSETS_PATH + 'art/clips/';
 export const ART_FILENAMES = [
     {
         name: 'Freewind Outpost',

@@ -1,6 +1,8 @@
 import { CodeLogo, CodeCardItem, Proficiency, CodeSkill, CodeSkillsItem } from '@/common/types/code';
 
-export const CODE_LOGOS_PATH = 'https://john-goben-portfolio.s3.us-east-2.amazonaws.com/code/logos/';
+import * as Common from '@/common/constants/common';
+
+export const CODE_LOGOS_PATH = Common.ASSETS_PATH + 'code/logos';
 
 export const WORK_LOGOS = [
     {
@@ -128,9 +130,10 @@ export const PROJECT_DESCRIPTIONS = [
         rightSubtitle: 'https://www.github.com/TwinHits/johngoben',
         description: [
             "You're here now! Welcome 😊",
-            'This website was created using Vue.js, JavaScript, and hosted using AWS.',
+            'This website was created using the Vue.js framework.',
             'Development was supported with Vuetify, TypeScript, Prettier, SASS, ESLint, Material Design, and FontAwesome.',
-            'Designed from scratch after several iterations and valuable feedback sessions with interested partners.',
+            'Deployment is maintained with infrastructure-as-code using AWS CDK.',
+            'Designed from scratch after several iterations and valuable feedback sessions with interested partners like my parents.',
         ],
     },
     {
