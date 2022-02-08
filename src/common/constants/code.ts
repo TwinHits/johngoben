@@ -261,7 +261,11 @@ export const SKILL_DESCRIPTIONS = [
             },
             {
                 name: 'GitHub Actions',
-                proficiency: Proficiency.Excellent,
+                proficiency: Proficiency.Proficient,
+            },
+            {
+                name: 'AWS Cloud Development Kit',
+                proficiency: Proficiency.Proficient,
             },
         ] as CodeSkill[],
     },
