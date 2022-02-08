@@ -88,8 +88,8 @@ export default Vue.extend({
 .art-img-font {
     color: $text-dark;
     font-weight: bold;
-    font-size: .8vw;
-    padding-left: .5vw;
+    font-size: 0.8vw;
+    padding-left: 0.5vw;
 }
 
 .art-img-container-col {

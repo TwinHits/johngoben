@@ -100,10 +100,10 @@ export default Vue.extend({
 }
 
 .info-col-hover {
-    padding-left: .5vw;
-    padding-top: .5vh;
-    padding-bottom: .5vh;
-    padding-right: .5vw;
+    padding-left: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    padding-right: 0.5vw;
     border-radius: 200px;
 }
 

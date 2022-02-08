@@ -79,6 +79,6 @@ export default Vue.extend({
 }
 
 .code-card-text {
-    font-size: 1.8vh
+    font-size: 1.8vh;
 }
 </style>

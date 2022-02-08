@@ -43,7 +43,7 @@ export default Vue.extend({
 <style scoped>
 .art-tag-label {
     padding: 0vh 0.25vw;
-    font-size: .75vw;
+    font-size: 0.75vw;
 }
 
 .art-tag-disabled {

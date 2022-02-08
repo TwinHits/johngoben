@@ -59,8 +59,8 @@ export default Vue.extend({
             */
         },
         setMobile(event: Event) {
-           this.$store.commit('setMobile', this.$vuetify.breakpoint.smAndDown);
-        }
+            this.$store.commit('setMobile', this.$vuetify.breakpoint.smAndDown);
+        },
     },
 });
 </script>

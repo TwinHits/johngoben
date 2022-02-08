@@ -102,7 +102,7 @@ export default Vue.extend({
 
 .code-slide-item {
     margin: 0 1vw;
-    width: 35vw
+    width: 35vw;
 }
 
 .info-col {

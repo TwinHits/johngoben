@@ -193,7 +193,6 @@ export const SKILL_DESCRIPTIONS = [
                 name: 'Bash',
                 proficiency: Proficiency.Proficient,
             },
-
         ] as CodeSkill[],
     },
     {
