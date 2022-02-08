@@ -1,13 +1,13 @@
 <template>
     <v-app app>
-        <v-navigation-drawer permanent app class="nav-drawer font-family">
+        <v-navigation-drawer permanent bottom app class="nav-drawer font-family">
             <Navigation />
         </v-navigation-drawer>
         <v-content class="content" app>
             <v-container fill-height class="container font-family">
-                <NextViewIcon class="up-next-view-icon" direction="up" />
+                <NextViewIcon class="up-next-view-icon" v-if="!isMobile" direction="up" />
                 <router-view />
-                <NextViewIcon class="down-next-view-icon" direction="down" />
+                <NextViewIcon class="down-next-view-icon" v-if="!isMobile" direction="down" />
                 <ContactMe class="contact-me" />
             </v-container>
         </v-content>
@@ -16,8 +16,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-
-import * as NavigationUtils from '@/common/utils/navigation';
 
 import ContactMe from '@/views/components/ContactMe.vue';
 import Navigation from '@/views/components/navigation/Navigation.vue';
@@ -62,6 +60,11 @@ export default Vue.extend({
             this.$store.commit('setMobile', this.$vuetify.breakpoint.smAndDown);
         },
     },
+    computed: {
+        isMobile(): boolean {
+            return this.$store.getters.isMobile;
+        }
+    }
 });
 </script>
 
@@ -85,10 +88,21 @@ export default Vue.extend({
 
 .content {
     padding: 0 0 0 15vw !important;
-    width: 100%;
 }
 
 .container {
     background-color: $background;
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        padding: 7.9vh 0 0 0 !important;
+        height: 70px !important;
+    }
+
+    .nav-drawer {
+        height: 8vh !important;
+        width: 100% !important;
+    }
 }
 </style>

@@ -67,4 +67,10 @@ export default Vue.extend({
 .nav-item-list {
     margin-top: 10vh;
 }
+
+@media only screen and (max-width: 768px) {
+    .nav-item-list {
+        margin-top: 0;
+    }
+}
 </style>
