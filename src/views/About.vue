@@ -76,10 +76,10 @@ export default Vue.extend({
 }
 
 .info-col {
-    padding-left: 2vw;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-    padding-right: 2vw;
+    padding-left: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-right: 1vw;
     transition: padding-right 0.2s, padding-left 0.2s, padding-top 0.2s, padding-bottom 0.2s;
 }
 
@@ -100,10 +100,10 @@ export default Vue.extend({
 }
 
 .info-col-hover {
-    padding-left: 1vw;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    padding-right: 1vw;
+    padding-left: .5vw;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
+    padding-right: .5vw;
     border-radius: 200px;
 }
 

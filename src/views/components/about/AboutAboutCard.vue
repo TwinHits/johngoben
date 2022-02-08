@@ -1,7 +1,7 @@
 <template>
     <v-card elevation="5" class="about-card-content full-height">
-        <v-row no-gutters class="about-card-title">
-            <v-col> About </v-col>
+        <v-row no-gutters>
+            <v-col class="about-card-title"> About </v-col>
         </v-row>
         <v-row no-gutters>
             <v-col>
