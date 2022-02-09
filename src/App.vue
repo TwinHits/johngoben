@@ -1,7 +1,10 @@
 <template>
     <v-app app>
-        <v-navigation-drawer permanent bottom app class="nav-drawer font-family">
-            <Navigation />
+        <v-navigation-drawer v-if="!isMobile" permanent app class="nav-drawer font-family">
+            <LeftNavigation />
+        </v-navigation-drawer>
+        <v-navigation-drawer v-if="isMobile" permanent app class="nav-drawer font-family">
+            <TopNavigation />
         </v-navigation-drawer>
         <v-content class="content" app>
             <v-container fill-height class="container font-family">
@@ -18,18 +21,21 @@
 import Vue from 'vue';
 
 import ContactMe from '@/views/components/ContactMe.vue';
-import Navigation from '@/views/components/navigation/Navigation.vue';
+import LeftNavigation from '@/views/components/navigation/LeftNavigation.vue';
 import NextViewIcon from '@/views/components/navigation/NextViewIcon.vue';
+import TopNavigation from '@/views/components/navigation/TopNavigation.vue';
 
 export default Vue.extend({
     components: {
         ContactMe,
-        Navigation,
+        LeftNavigation,
         NextViewIcon,
+        TopNavigation,
     },
     created() {
         window.addEventListener('wheel', this.handleWheelScroll);
         window.addEventListener('resize', this.setMobile);
+        this.setMobile();
     },
     destroyed() {
         window.removeEventListener('wheel', this.handleWheelScroll);
@@ -56,7 +62,7 @@ export default Vue.extend({
             }
             */
         },
-        setMobile(event: Event) {
+        setMobile() {
             this.$store.commit('setMobile', this.$vuetify.breakpoint.smAndDown);
         },
     },

@@ -1,9 +1,9 @@
 <template>
     <v-list-item class="nav-item" @click="goToRoute(item.route)">
         <v-list-item-content>
-            <v-list-item-title>
+            <v-list-item-title class="text-center">
                 <Transition mode="out-in" name="fade-in">
-                    <span class="nav-item-title" :class="{ 'nav-item-active': active }">{{ item.title }}</span>
+                    <span class="nav-item-title" :class="{ 'nav-item-title-active': active }">{{ item.title }}</span>
                 </Transition>
             </v-list-item-title>
         </v-list-item-content>
@@ -46,23 +46,36 @@ export default Vue.extend({
 }
 
 .nav-item-title {
-    font-size: 3vw;
-    padding-left: 1vw;
+    font-size: 2.5vw;
     transition: font-size 0.7s, padding-left 0.7s;
     color: $text-light;
     text-shadow: 2px 2px 8px $text-dark;
 }
 
-.nav-item-active {
+.nav-item-title-active {
     font-size: 3.8vw;
     font-weight: bold;
-    padding-left: 3.5vw;
     transition: font-size 0.7s, padding-left 0.7s;
 }
 
 @media only screen and (max-width: 768px) {
     .nav-item {
-        height: 10vh;
+        height: 7vh;
+    }
+
+    .nav-item-title {
+        font-size: 2.8vh;
+        padding-left: 0;
+        transition: font-size 0.7s;
+        color: $text-light;
+        text-shadow: 2px 2px 8px $text-dark;
+    }
+
+    .nav-item-title-active {
+        font-size: 3.5vh;
+        font-weight: bold;
+        padding-left: 0;
+        transition: font-size 0.7s;
     }
 }
 </style>
