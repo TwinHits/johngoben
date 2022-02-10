@@ -7,7 +7,7 @@
             <TopNavigation />
         </v-navigation-drawer>
         <v-content class="content" app>
-            <v-container fill-height class="container font-family">
+            <v-container :fill-height="!isMobile" class="container font-family">
                 <NextViewIcon class="up-next-view-icon" v-if="!isMobile" direction="up" />
                 <router-view />
                 <NextViewIcon class="down-next-view-icon" v-if="!isMobile" direction="down" />
@@ -69,8 +69,8 @@ export default Vue.extend({
     computed: {
         isMobile(): boolean {
             return this.$store.getters.isMobile;
-        }
-    }
+        },
+    },
 });
 </script>
 
@@ -98,6 +98,7 @@ export default Vue.extend({
 
 .container {
     background-color: $background;
+    padding: 0;
 }
 
 @media only screen and (max-width: 768px) {

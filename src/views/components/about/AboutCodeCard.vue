@@ -36,11 +36,11 @@
                                     >For these cool companies</v-col
                                 >
                             </v-row>
-                            <v-row class="work-row" justify="space-around">
+                            <v-row class="work-row" justify="center" align="center">
                                 <v-col
                                     v-for="logo in workLogos"
                                     :key="logo.name"
-                                    :cols="5"
+                                    :cols="6"
                                     :class="{ 'get-well': logo.name === 'GetWellNetwork, Inc' }"
                                 >
                                     <v-img
@@ -58,11 +58,10 @@
                                     >And for my own projects</v-col
                                 >
                             </v-row>
-                            <v-row class="work-row" justify="center">
+                            <v-row class="work-row" justify="center" align="center">
                                 <v-col v-for="logo in projectLogos" :key="logo.name" :cols="4">
                                     <v-img
                                         class="logo-img"
-                                        :class="{ 'docs-bay': logo.name === 'johngoben' }"
                                         :src="codeLogosPaths + logo.filename"
                                         contain
                                         aspect-ratio="1"
@@ -97,6 +96,9 @@ export default Vue.extend({
     computed: {
         languageAndToolLogos(): CodeLogo[] {
             return this.languageLogos.concat(this.toolLogos);
+        },
+        isMobile(): boolean {
+            return this.$store.getters.isMobile;
         },
     },
     methods: {

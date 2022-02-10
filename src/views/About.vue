@@ -1,35 +1,72 @@
 <template>
-    <v-row class="full-height" no-gutters>
-        <v-col cols="4" class="info-col-left info-col">
-            <Transition name="slide-right" mode="out-in">
-                <AboutAboutCard v-show="show" class="info-card full-height" />
-            </Transition>
-        </v-col>
-        <v-col cols="8">
-            <v-row no-gutters class="half-height">
-                <v-hover v-slot="{ hover }">
-                    <v-col
-                        class="info-col info-col-right info-col-top"
-                        :class="{ 'info-col-hover info-col-right-hover info-col-top-hover': hover }"
-                    >
-                        <Transition name="slide-left" mode="out-in">
-                            <AboutCodeCard v-show="show" class="info-card full-height" />
+    <v-row no-gutters class="full-height">
+        <v-col>
+            <v-row v-if="!isMobile" class="full-height" no-gutters>
+                <v-col cols="4" class="info-col-left info-col">
+                    <Transition name="slide-right" mode="out-in">
+                        <AboutAboutCard v-show="show" class="info-card full-height" />
+                    </Transition>
+                </v-col>
+                <v-col cols="8">
+                    <v-row no-gutters class="half-height">
+                        <v-hover v-slot="{ hover }">
+                            <v-col
+                                class="info-col info-col-right info-col-top"
+                                :class="{ 'info-col-hover info-col-right-hover info-col-top-hover': hover }"
+                            >
+                                <Transition name="slide-left" mode="out-in">
+                                    <AboutCodeCard v-show="show" class="info-card full-height" />
+                                </Transition>
+                            </v-col>
+                        </v-hover>
+                    </v-row>
+                    <v-row no-gutters class="half-height">
+                        <v-hover v-slot="{ hover }">
+                            <v-col
+                                class="info-col info-col-right info-col-bottom"
+                                :class="{ 'info-col-hover info-col-right-hover info-col-bottom-hover': hover }"
+                            >
+                                <Transition name="slide-up" mode="out-in">
+                                    <AboutArtCard v-show="show" class="info-card full-height" />
+                                </Transition>
+                            </v-col>
+                        </v-hover>
+                    </v-row>
+                </v-col>
+            </v-row>
+            <div v-if="isMobile">
+                <v-row no-gutters>
+                    <v-col class="info-col">
+                        <Transition name="fade-in" mode="out-in">
+                            <AboutAboutCard v-show="show" class="info-card" />
                         </Transition>
                     </v-col>
-                </v-hover>
-            </v-row>
-            <v-row no-gutters class="half-height">
-                <v-hover v-slot="{ hover }">
-                    <v-col
-                        class="info-col info-col-right info-col-bottom"
-                        :class="{ 'info-col-hover info-col-right-hover info-col-bottom-hover': hover }"
-                    >
-                        <Transition name="slide-up" mode="out-in">
-                            <AboutArtCard v-show="show" class="info-card full-height" />
-                        </Transition>
-                    </v-col>
-                </v-hover>
-            </v-row>
+                </v-row>
+                <v-row no-gutters>
+                    <v-hover v-slot="{ hover }">
+                        <v-col
+                            class="info-col"
+                            :class="{ 'info-col-hover info-col-right-hover info-col-top-hover': hover }"
+                        >
+                            <Transition name="fade-in" mode="out-in">
+                                <AboutCodeCard v-show="show" class="info-card" />
+                            </Transition>
+                        </v-col>
+                    </v-hover>
+                </v-row>
+                <v-row no-gutters>
+                    <v-hover v-slot="{ hover }">
+                        <v-col
+                            class="info-col"
+                            :class="{ 'info-col-hover info-col-right-hover info-col-bottom-hover': hover }"
+                        >
+                            <Transition name="fade-in" mode="out-in">
+                                <AboutArtCard v-show="show" class="info-card" />
+                            </Transition>
+                        </v-col>
+                    </v-hover>
+                </v-row>
+            </div>
         </v-col>
     </v-row>
 </template>
@@ -51,6 +88,11 @@ export default Vue.extend({
         return {
             show: false,
         };
+    },
+    computed: {
+        isMobile() {
+            return this.$store.getters.isMobile;
+        },
     },
     mounted() {
         this.show = true;
@@ -84,11 +126,11 @@ export default Vue.extend({
 }
 
 .info-col-left {
-    padding-right: 1vw;
+    padding-right: 0.5vw;
 }
 
 .info-col-right {
-    padding-left: 1vw;
+    padding-left: 0.5vw;
 }
 
 .info-col-top {
@@ -121,5 +163,11 @@ export default Vue.extend({
 
 .info-col-bottom-hover {
     padding-top: 0vh;
+}
+
+@media only screen and (max-width: 768px) {
+    .info-col {
+        padding: 0.5vh 2vw;
+    }
 }
 </style>

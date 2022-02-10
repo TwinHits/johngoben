@@ -1,24 +1,22 @@
 <template>
     <v-card elevation="5" class="about-card-content full-height">
-        <v-row no-gutters>
+        <v-row v-if="!isMobile" no-gutters>
             <v-col class="about-card-title"> About </v-col>
         </v-row>
-        <v-row no-gutters>
+        <v-row>
             <v-col>
                 <v-img class="logo-img" :src="aboutPicture" contain aspect-ratio="1" />
             </v-col>
         </v-row>
-        <v-card-subtitle class="about-card-subtitle about-card-text text-center">John Goben</v-card-subtitle>
-        <v-card-text class="about-card-text">
-            <v-row class="bio-row text-center">
-                <v-col> Named after this website, John is a Software Engineer and a huge nerd. </v-col>
-            </v-row>
-            <v-row class="about-card-footer">
-                <v-col>
-                    <EducationCard class="education-card" />
-                </v-col>
-            </v-row>
-        </v-card-text>
+        <v-card-subtitle class="about-card-subtitle text-center">John Goben</v-card-subtitle>
+        <v-row class="bio-row about-card-text text-center">
+            <v-col> Named after this website, John is a Software Engineer and a huge nerd. </v-col>
+        </v-row>
+        <v-row class="about-card-footer">
+            <v-col>
+                <EducationCard class="education-card" />
+            </v-col>
+        </v-row>
     </v-card>
 </template>
 
@@ -38,6 +36,11 @@ export default Vue.extend({
             aboutPicture: About.ABOUT_PATH + About.ABOUT_PICTURE,
         };
     },
+    computed: {
+        isMobile(): boolean {
+            return this.$store.getters.isMobile;
+        },
+    },
 });
 </script>
 
@@ -47,12 +50,6 @@ export default Vue.extend({
 
 .about-card-title {
     padding-left: 16px;
-}
-
-.about-card-footer {
-    bottom: 1vh;
-    left: 1vw;
-    width: 97%;
 }
 
 .logo-img {

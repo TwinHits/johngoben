@@ -9,7 +9,7 @@
                         </v-row>
                         <v-row>
                             <v-col>
-                                <v-row>
+                                <v-row no-gutters>
                                     <v-col class="about-card-subtitle about-card-text">
                                         I also draw fantasy maps for games and friends.
                                     </v-col>
@@ -24,7 +24,7 @@
                                         </ul>
                                     </v-col>
                                 </v-row>
-                                <v-row class="about-card-footer">
+                                <v-row class="about-card-footer" no-gutters>
                                     <v-col class="about-card-subtitle">
                                         Commissions open depending on availability.
                                     </v-col>
@@ -32,7 +32,7 @@
                             </v-col>
                         </v-row>
                     </v-col>
-                    <v-col cols="6">
+                    <v-col v-if="!isMobile" cols="6">
                         <v-carousel
                             class="art-preview"
                             :class="{ 'art-preview-hover': hover }"
@@ -46,7 +46,6 @@
                                 v-for="item in artItems"
                                 :key="item.filename"
                                 :src="artClipPath + item.filename"
-                                transition="slide-x-transition"
                             ></v-carousel-item>
                         </v-carousel>
                     </v-col>
@@ -74,6 +73,11 @@ export default Vue.extend({
             this.$router.push('Art');
         },
     },
+    computed: {
+        isMobile(): boolean {
+            return this.$store.getters.isMobile;
+        },
+    },
 });
 </script>
 
@@ -82,16 +86,26 @@ export default Vue.extend({
 @import '@/style/components/AboutCard.scss';
 
 .art-preview {
-    max-height: 38vh;
+    max-height: 42vh;
     box-shadow: 2px 2px 5px $background;
     border-radius: 5px;
 }
 
 .art-preview-hover {
-    max-height: 42vh;
+    max-height: 44vh;
 }
 
 .art-unordered-list {
     padding-left: 2vw;
+}
+
+.about-card-footer {
+    bottom: 3.5vh;
+}
+
+@media only screen and (max-width: 768px) {
+    .art-unordered-list {
+        padding-left: 10vw;
+    }
 }
 </style>
