@@ -1,5 +1,5 @@
 <template>
-    <v-row no-gutters ref="artContainer">
+    <v-row no-gutters>
         <v-col v-if="art.length">
             <v-row justify="center" align="center" class="copyright-row" no-gutters>
                 <v-col class="text-center">
@@ -48,6 +48,9 @@ export default Vue.extend({
         };
     },
     computed: {
+        isMobile(): boolean {
+            return this.$store.getters.isMobile;
+        },
         selectedTags(): string[] {
             return this.$store.getters.selectedTags;
         },
@@ -66,7 +69,7 @@ export default Vue.extend({
             }
         },
         cols(): number {
-            return 3;
+            return !this.isMobile ? 3 : 1;
         },
         rows(): number {
             return Math.floor(this.totalItems / this.cols);
@@ -156,4 +159,5 @@ export default Vue.extend({
 .art-display-modal {
     height: 66%;
 }
+
 </style>

@@ -1,17 +1,23 @@
 <template>
-    <v-dialog v-model="show" width="unset">
+    <v-dialog v-model="show" :fullscreen="$store.getters.isMobile" width="unset">
         <v-card class="art-display-card">
-            <v-btn class="close-icon-button" color="#90A4AE" icon medium elevation="4">
-                <v-icon color="#263238" size="35" @click="show = false">mdi-window-close</v-icon>
+            <v-btn class="close-icon-button" color="#90A4AE" icon medium elevation="4" @click="setShow(false)">
+                <v-icon color="#263238" size="35">mdi-window-close</v-icon>
             </v-btn>
             <v-row no-gutters>
                 <v-col class="art-img-container" align="center">
                     <img
                         class="art-img"
-                        v-if="content"
-                        v-show="!loading"
+                        v-if="content && !isMobile"
                         :src="fullPath + content.filename"
                         @load="onImgLoad"
+                    />
+                    <v-img
+                        class="art-img"
+                        v-if="content && isMobile"
+                        :src="fullPath + content.filename"
+                        @load="onImgLoad"
+                        contain
                     />
                 </v-col>
             </v-row>
@@ -40,6 +46,11 @@ export default Vue.extend({
             clippath: Art.ART_CLIP_PATH as string,
         };
     },
+    computed: {
+        isMobile(): boolean {
+            return this.$store.getters.isMobile;
+        }
+    },
     watch: {
         content(newValue) {
             if (newValue) {
@@ -55,6 +66,9 @@ export default Vue.extend({
     methods: {
         onImgLoad() {
             this.loading = false;
+        },
+        setShow(show: boolean) {
+            this.show = show;
         },
         onClose() {
             this.$emit('close');

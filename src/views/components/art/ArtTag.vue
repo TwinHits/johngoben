@@ -43,10 +43,17 @@ export default Vue.extend({
 <style scoped>
 .art-tag-label {
     padding: 0vh 0.25vw;
-    font-size: 0.75vw;
+    font-size: 1.6vh;
 }
 
 .art-tag-disabled {
     opacity: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+    .art-tag-label {
+        padding: 0vh 2vw;
+        font-size: 1.6vh;
+    }
 }
 </style>

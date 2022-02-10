@@ -15,12 +15,12 @@
                 </v-col>
             </v-row>
             <v-row class="art-img-footer-row text-left" no-gutters align="center">
-                <v-col class="art-img-font" :cols="6">
+                <v-col class="art-img-font">
                     {{ content.name }}
                 </v-col>
-                <v-col :cols="6">
+                <v-col class="col-auto">
                     <v-row no-gutters justify="end">
-                        <v-col class="art-tag" md="auto" v-for="tag in content.tags" :key="tag">
+                        <v-col class="art-tag col-auto" v-for="tag in content.tags" :key="tag">
                             <ArtTag :content="tag" />
                         </v-col>
                     </v-row>
@@ -88,7 +88,7 @@ export default Vue.extend({
 .art-img-font {
     color: $text-dark;
     font-weight: bold;
-    font-size: 0.8vw;
+    font-size: 1.6vh;
     padding-left: 0.5vw;
 }
 
@@ -98,4 +98,21 @@ export default Vue.extend({
 .art-tag {
     padding: 0.2vh 0.2vw;
 }
+
+
+@media only screen and (max-width: 768px) {
+    .art-img-font {
+        padding-left: 3vw;
+    }
+
+    .art-tag {
+        padding-right: 0.5vw;
+        padding-left: 0.5vw;
+    }
+
+    .art-img-footer-row {
+        height: 5vh;
+    }
+}
+
 </style>
