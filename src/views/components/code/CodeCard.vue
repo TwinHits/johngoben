@@ -2,7 +2,7 @@
     <v-card elevation="5">
         <v-card-title class="code-card-title">
             <v-row no-gutters justify="space-between" align="center">
-                <v-col cols="6">{{ content.title }}</v-col>
+                <v-col class="col-auto">{{ content.title }}</v-col>
                 <v-col cols="2">
                     <v-img
                         class="code-logo-img"
@@ -15,8 +15,8 @@
         </v-card-title>
         <v-card-subtitle class="code-card-subtitle">
             <v-row no-gutters justify="space-between">
-                <v-col cols="5">{{ content.subtitle }}</v-col>
-                <v-col class="text-right" cols="7">
+                <v-col class="col-auto">{{ content.subtitle }}</v-col>
+                <v-col class="text-right col-auto">
                     <a v-if="isRightSubtitleLink" :href="content.rightSubtitle">{{ truncatedRightSubtitleLink }}</a>
                     <span v-else>{{ content.rightSubtitle }}</span>
                 </v-col>
