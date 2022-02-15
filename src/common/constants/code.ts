@@ -73,7 +73,7 @@ export const WORK_DESCRIPTIONS = [
         title: 'RightEye, LLC',
         logo: WORK_LOGOS[1],
         subtitle: 'Senior Software Engineer',
-        rightSubtitle: 'January, 2020 -> October, 2021',
+        rightSubtitle: 'January, 2020 → October, 2021',
         description: [
             'Designed, iterated, and then developed major product interface redesign with stakeholders',
             'Migrated server log management to Datadog for better product analysis and troubleshooting',
@@ -84,7 +84,7 @@ export const WORK_DESCRIPTIONS = [
         title: 'GetWellNetwork, Inc',
         logo: WORK_LOGOS[0],
         subtitle: 'Software Engineer',
-        rightSubtitle: 'October, 2017 -> December, 2019',
+        rightSubtitle: 'October, 2017 → December, 2019',
         description: [
             'Implemented, and maintained RESTful internal tools and services based on rapidly evolving requirements',
             'Implemented AWS Lambda serverless based central media management and storage system',
@@ -97,7 +97,7 @@ export const WORK_DESCRIPTIONS = [
         title: 'GetWellNetwork, Inc',
         logo: WORK_LOGOS[0],
         subtitle: 'Senior Content Configuration Specialist',
-        rightSubtitle: 'January, 2013 -> October, 2017',
+        rightSubtitle: 'January, 2013 → October, 2017',
         description: [
             'Recognized as a top 10% employee for exceptional team and company contributions',
             'Designed and developed content for major healthcare systems using HTML, CSS, JavaScript',
