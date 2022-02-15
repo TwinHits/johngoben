@@ -6,7 +6,7 @@
         <v-navigation-drawer v-if="isMobile" permanent app class="nav-drawer font-family">
             <TopNavigation />
         </v-navigation-drawer>
-        <v-content class="content" app>
+        <v-content class="content" app style="padding: 0 0 0 15vw">
             <v-container :fill-height="!isMobile" class="container font-family">
                 <NextViewIcon class="up-next-view-icon" v-if="!isMobile" direction="up" />
                 <router-view />
@@ -33,35 +33,13 @@ export default Vue.extend({
         TopNavigation,
     },
     created() {
-        window.addEventListener('wheel', this.handleWheelScroll);
         window.addEventListener('resize', this.setMobile);
         this.setMobile();
     },
     destroyed() {
-        window.removeEventListener('wheel', this.handleWheelScroll);
         window.removeEventListener('resize', this.setMobile);
     },
     methods: {
-        handleWheelScroll(event: WheelEvent) {
-            /*
-            let nextRoute;
-            if (event.deltaY < 0 && window.scrollY === 0) {
-                nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, -1);
-            } else if (event.deltaY > 0) {
-                let bottomOfWindow =
-                    Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) +
-                        window.innerHeight >=
-                    document.documentElement.offsetHeight;
-                if (bottomOfWindow) {
-                    nextRoute = NavigationUtils.findNextRoute(this.$router.currentRoute, 1);
-                }
-            }
-
-            if (nextRoute) {
-                this.$router.push(nextRoute.route);
-            }
-            */
-        },
         setMobile() {
             this.$store.commit('setMobile', this.$vuetify.breakpoint.smAndDown);
         },
@@ -78,6 +56,7 @@ export default Vue.extend({
 @import '@/style/Colors.scss';
 @import '@/style/components/NextViewIcon.scss';
 @import url('https://fonts.googleapis.com/css2?family=Anaheim&display=swap');
+@import '@/style/Print.scss';
 
 .font-family {
     font-family: 'Anaheim', sans-serif;
@@ -90,10 +69,6 @@ export default Vue.extend({
     width: 15vw !important;
     background: $background !important;
     z-index: 2;
-}
-
-.content {
-    padding: 0 0 0 15vw !important;
 }
 
 .container {

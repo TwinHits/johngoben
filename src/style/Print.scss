@@ -1,0 +1,31 @@
+@page { 
+    margin: 0; 
+}
+
+@media print {
+
+    @page { 
+        margin: 0; 
+    }
+
+    .nav-drawer {
+        display: none;
+    }
+
+    .container {
+        max-width: 100%;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .content {
+        padding: 0 0 0 0 !important;
+    }
+
+    .up-next-view-icon, .down-next-view-icon {
+        display: none;
+    }
+
+    .contact-me {
+        display: none;
+    }
+}
