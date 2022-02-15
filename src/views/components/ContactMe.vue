@@ -2,28 +2,28 @@
     <v-card @click="setShow(!showFull)" class="contact-me" :class="{ 'contact-me-full': showFull }" elevation="10">
         <v-card-title class="contact-me-title">Contact Me</v-card-title>
         <v-card-text v-show="showText">
-        <v-fade-transition>
-            <v-row align="center" justify="start">
-                <v-col class="contact-me-icon-col text-center" :cols="2">
-                    <v-icon size="35" color="#263238">mdi-at</v-icon>
-                </v-col>
-                <v-col class="contact-me-text" :cols="10">
-                    <a @click.stop="">john.goben@gmail.com</a>
-                </v-col>
-            </v-row>
-        </v-fade-transition>
-        <v-fade-transition>
-            <v-row align="center" justify="start">
-                <v-col class="contact-me-icon-col text-center" :cols="2">
-                    <v-icon size="35" color="#263238">mdi-linkedin</v-icon>
-                </v-col>
-                <v-col class="contact-me-text" :cols="10">
-                    <a href="https://www.linkedin.com/in/johngoben/" target="_blank" @click.stop="">
-                        linkedin.com/in/johngoben/
-                    </a>
-                </v-col>
-            </v-row>
-        </v-fade-transition>
+            <v-fade-transition>
+                <v-row align="center" justify="start">
+                    <v-col class="contact-me-icon-col text-center" :cols="2">
+                        <v-icon size="35" color="#263238">mdi-at</v-icon>
+                    </v-col>
+                    <v-col class="contact-me-text" :cols="10">
+                        <a @click.stop="">john.goben@gmail.com</a>
+                    </v-col>
+                </v-row>
+            </v-fade-transition>
+            <v-fade-transition>
+                <v-row align="center" justify="start">
+                    <v-col class="contact-me-icon-col text-center" :cols="2">
+                        <v-icon size="35" color="#263238">mdi-linkedin</v-icon>
+                    </v-col>
+                    <v-col class="contact-me-text" :cols="10">
+                        <a href="https://www.linkedin.com/in/johngoben/" target="_blank" @click.stop="">
+                            linkedin.com/in/johngoben/
+                        </a>
+                    </v-col>
+                </v-row>
+            </v-fade-transition>
         </v-card-text>
     </v-card>
 </template>

@@ -50,7 +50,12 @@
             </v-col>
         </v-row>
         <v-row no-gutters justify="space-around">
-            <v-col v-for="(skill, index) in skills" :key="index" :cols="!isMobile ? 4 : 12" class="info-col info-col-left">
+            <v-col
+                v-for="(skill, index) in skills"
+                :key="index"
+                :cols="!isMobile ? 4 : 12"
+                class="info-col info-col-left"
+            >
                 <Transition name="fade-in" mode="out-in" appear>
                     <CodeSkillsCard :content="skill" class="info-card" />
                 </Transition>
@@ -84,8 +89,8 @@ export default Vue.extend({
     computed: {
         isMobile(): boolean {
             return this.$store.getters.isMobile;
-        }
-    }
+        },
+    },
 });
 </script>
 

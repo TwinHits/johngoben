@@ -159,5 +159,4 @@ export default Vue.extend({
 .art-display-modal {
     height: 66%;
 }
-
 </style>

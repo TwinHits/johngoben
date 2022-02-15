@@ -49,7 +49,7 @@ export default Vue.extend({
     computed: {
         isMobile(): boolean {
             return this.$store.getters.isMobile;
-        }
+        },
     },
     watch: {
         content(newValue) {

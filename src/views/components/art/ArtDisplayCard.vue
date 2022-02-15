@@ -99,7 +99,6 @@ export default Vue.extend({
     padding: 0.2vh 0.2vw;
 }
 
-
 @media only screen and (max-width: 768px) {
     .art-img-font {
         padding-left: 3vw;
@@ -114,5 +113,4 @@ export default Vue.extend({
         height: 5vh;
     }
 }
-
 </style>
