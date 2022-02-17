@@ -1,5 +1,3 @@
-import { prototype } from 'vue/types/umd';
-
 export class CircularLinkedList {
     root: LinkedListNode;
 

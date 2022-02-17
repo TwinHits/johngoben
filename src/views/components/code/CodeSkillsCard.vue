@@ -35,7 +35,7 @@ export default Vue.extend({
         sortedSkills(): CodeSkill[] {
             // Use filter to create a copy of the array
             return this.content.skills
-                .filter((s) => true)
+                .filter(() => true)
                 .sort((rhs, lhs) => (rhs.proficiency < lhs.proficiency ? 1 : -1));
         },
     },
