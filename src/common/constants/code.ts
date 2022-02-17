@@ -75,9 +75,12 @@ export const WORK_DESCRIPTIONS = [
         subtitle: 'Senior Software Engineer',
         rightSubtitle: 'January, 2020 → October, 2021',
         description: [
-            'Designed, iterated, and then developed major product interface redesign with stakeholders',
-            'Migrated server log management to Datadog for better product analysis and troubleshooting',
-            'Rewrote development documentation and ‘Get Started’ materials for the full stack',
+            'Designed, implemented, and maintained new products for an emerging startup',
+            'Built and supported AWS cloud based solutions for new and existing products',
+            'Researched and selected technologies and tools to support product development',
+            'Refactored legacy projects and implemented popular new features in C# with WPF',
+            'Designed and developed major product interface redesigns with Vue.js and TypeScript',
+            'Migrated server logs to Datadog for better product analysis and troubleshooting',
         ],
     },
     {
@@ -86,9 +89,9 @@ export const WORK_DESCRIPTIONS = [
         subtitle: 'Software Engineer',
         rightSubtitle: 'October, 2017 → December, 2019',
         description: [
-            'Implemented, and maintained RESTful internal tools and services based on rapidly evolving requirements',
-            'Implemented AWS Lambda serverless based central media management and storage system',
-            'Developed client contracted server upgrade and maintenance windows using Google Calendar API',
+            'Implemented and maintained internal tools and REST services in Java with Wildfly',
+            'Implemented AWS Lambda serverless based media management and storage system',
+            'Developed client server maintenance windows architecture using Google Calendar API',
             'Designed and implemented heuristic based custom project tracking tools for legacy projects',
             'Modernized our development environment using Docker so new developers can get writing immediately',
         ],
@@ -100,7 +103,7 @@ export const WORK_DESCRIPTIONS = [
         rightSubtitle: 'January, 2013 → October, 2017',
         description: [
             'Recognized as a top 10% employee for exceptional team and company contributions',
-            'Designed and developed content for major healthcare systems using HTML, CSS, JavaScript',
+            'Developed content for major healthcare systems with HTML, CSS, and JavaScript',
             'Managed West Coast and Mid Atlantic ~5.2mil ARR strategic client configurations',
             'Represented team to engineering and product departments as technical subject matter expert',
             'Developed and launched new internal and client facing reporting tools and interfaces',

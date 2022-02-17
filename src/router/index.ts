@@ -3,7 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import About from '@/views/About.vue';
 import Code from '@/views/Code.vue';
 import Art from '@/views/Art.vue';
-import Words from '@/views/Words.vue';
+import Resume from '@/views/Resume.vue';
 
 Vue.use(VueRouter);
 
@@ -26,6 +26,11 @@ const routes: Array<RouteConfig> = [
         path: '/art',
         name: 'Art',
         component: Art,
+    },
+    {
+        path: '/resume',
+        name: 'Resume',
+        component: Resume,
     },
 ];
 

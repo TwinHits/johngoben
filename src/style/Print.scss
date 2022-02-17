@@ -1,11 +1,10 @@
-@page { 
-    margin: 0; 
+@page {
+    margin: 0;
 }
 
 @media print {
-
-    @page { 
-        margin: 0; 
+    @page {
+        margin: 0;
     }
 
     .nav-drawer {
@@ -21,7 +20,8 @@
         padding: 0 0 0 0 !important;
     }
 
-    .up-next-view-icon, .down-next-view-icon {
+    .up-next-view-icon,
+    .down-next-view-icon {
         display: none;
     }
 
