@@ -1,1 +1,1 @@
-export const ASSETS_PATH = 'https://john-goben-website.s3.amazonaws.com/assets/';
+export const ASSETS_PATH = 'http://www.johngoben.com.s3-website-us-east-1.amazonaws.com/';

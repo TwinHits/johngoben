@@ -5,21 +5,27 @@ export class JohnGobenStack extends Stack {
     constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
-        const websiteBucket = new s3.Bucket(this, 'JohnGobenPortfolioBucket', {
-            bucketName: "john-goben-website",
+        const comWebsiteBucket = new s3.Bucket(this, 'JohnGobenComBucket', {
+            bucketName: "johngoben.com",
+            publicReadAccess: true,
+            websiteRedirect: { hostName: 'www.johngoben.com' },
+        });
+        
+        const wwwWebsiteBucket = new s3.Bucket(this, 'wwwJohnGobenComBucket', {
+            bucketName: "www.johngoben.com",
             websiteIndexDocument: 'index.html',
             publicReadAccess: true
         });
 
         const webDistribution = new cloudfront.Distribution(this, 'JohnGobenCloudfrontDistribution', { 
             defaultBehavior: {
-                origin: new origins.S3Origin(websiteBucket),
+                origin: new origins.S3Origin(wwwWebsiteBucket),
             },
         });
 
         const websiteDeploy = new s3Deploy.BucketDeployment(this, 'JohnGobenBucketDeployment', {
             sources: [s3Deploy.Source.asset('dist')],
-            destinationBucket: websiteBucket,
+            destinationBucket: wwwWebsiteBucket,
             distribution: webDistribution,
         });
     }

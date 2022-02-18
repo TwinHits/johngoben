@@ -4,12 +4,12 @@ export default {
             isScrollNavigationEnabled: true as boolean,
         } as Record<string, boolean>),
     mutations: {
-        setScrollNavigationEnabled(state: Record<string, boolean>, enabled: boolean): void {
+        setScrollNavigationEnabled(state: any, enabled: boolean) {
             state.isScrollNavigationEnabled = enabled;
         },
     },
     actions: {
-        isScrollNavigationEnabled: (state: Record<string, boolean>): boolean => {
+        isScrollNavigationEnabled: (state: any) => {
             return state.isScrollNavigationEnabled;
         },
     },
