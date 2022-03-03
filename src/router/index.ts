@@ -36,6 +36,10 @@ const routes: Array<RouteConfig> = [
 
 const router = new VueRouter({
     routes,
+    scrollBehavior() {
+        // always scroll to top
+        return { x: 0, y: 0 };
+    },
 });
 
 export default router;
