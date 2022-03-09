@@ -9,7 +9,7 @@ export const RESUME_PATH = Common.ASSETS_PATH + 'resume/';
 export const GWU_LOGO_HORIZONTAL = 'gwu_horizontal.png';
 
 export const PERSONAL_SUMMARY =
-    'Focused, quick learning, and dedicated team member with skills across the stack from designing front end applications, implementing RESTful back end services, writing up database schemas, to configuring cloud services.';
+    'Focused, quick learning, and dedicated team member with skills down the stack from designing front end applications, implementing RESTful back end services, writing up database schemas, to configuring cloud services.';
 
 export const SKILLS = [
     {
