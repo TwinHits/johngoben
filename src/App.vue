@@ -7,7 +7,7 @@
             <TopNavigation />
         </v-navigation-drawer>
         <v-content class="content" app style="padding: 0 0 0 15vw">
-            <v-container :fill-height="!isMobile" class="container font-family">
+            <v-container fluid :fill-height="!isMobile" class="container font-family">
                 <NextViewIcon class="up-next-view-icon" v-if="!isMobile" direction="up" />
                 <router-view />
                 <NextViewIcon class="down-next-view-icon" v-if="!isMobile" direction="down" />
