@@ -40,13 +40,8 @@ export default Vue.extend({
     },
     methods: {
         setShow(show: boolean) {
-            if (show) {
-                this.showFull = show;
-                setTimeout(() => (this.showText = show), 700);
-            } else {
-                setTimeout(() => (this.showFull = show), 100);
-                this.showText = show;
-            }
+            this.showFull = show;
+            this.showText = show;
         },
     },
 });
@@ -61,10 +56,10 @@ export default Vue.extend({
     position: fixed;
     bottom: 1vh;
     right: 1vw;
-    transition: width 0.8s, height 0.8s;
 }
 
 .contact-me-full {
+    width: 20vw;
 }
 
 .contact-me-title {
