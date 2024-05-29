@@ -48,11 +48,23 @@
                         </v-col>
                     </v-row>
                     <v-row no-gutters>
-                        <v-col class="education-subtitle"> BA in Political Communication, 2012 </v-col>
+                        <v-col class="education-subtitle"> BA in Political Communication</v-col>
                     </v-row>
                     <v-row no-gutters>
                         <v-col class="education-subtitle"> Minor in Philosophy </v-col>
                     </v-row>
+                </v-col>
+            </v-row>
+            <v-divider />
+            <v-row class="certifications-section" no-gutters>
+                <v-col>
+                    <v-img
+                        class="work-logo-img"
+                        :src="awsCloudPractionerBadge"
+                        contain
+                        aspect-ratio="2"
+                        max-height="2.5cm"
+                    />
                 </v-col>
             </v-row>
             <v-divider />
@@ -75,6 +87,7 @@
                     </v-row>
                 </v-col>
             </v-row>
+
         </v-col>
         <v-col class="main-body">
             <v-row align="center" justify="center" no-gutters>
@@ -108,7 +121,7 @@
                         no-gutters
                     >
                         <v-col>
-                            <v-row v-if="index !== 2" no-gutters justify="space-between" align="center">
+                            <v-row v-if="index !== 3" no-gutters justify="space-between" align="center">
                                 <v-col class="col-auto work-title" align-self="center">{{ work.title }}</v-col>
                                 <v-col cols="2">
                                     <v-img
@@ -141,13 +154,12 @@
                     <v-row
                         v-for="(project, index) in projectDescriptions.slice(0, 2)"
                         :key="index"
-                        class="work-section"
                         align="center"
                         justify="space-around"
                         no-gutters
                     >
                         <v-col>
-                            <v-row no-gutters justify="space-between" align="center">
+                            <v-row class="work-section" no-gutters justify="space-between" align="center">
                                 <v-col class="col-auto work-title" align-self="center">{{ project.title }}</v-col>
                                 <v-col cols="2">
                                     <v-img
@@ -200,6 +212,7 @@ export default Vue.extend({
             otherSkills: Resume.OTHER_SKILLS,
             aboutPicture: About.ABOUT_PATH + About.ABOUT_PICTURE,
             gwuLogo: Resume.RESUME_PATH + Resume.GWU_LOGO_HORIZONTAL,
+            awsCloudPractionerBadge: Resume.RESUME_PATH + Resume.AWS_CLOUD_PRACTIONER_BADGE,
             codeLogosPath: Code.CODE_LOGOS_PATH,
         };
     },
@@ -246,7 +259,7 @@ export default Vue.extend({
 
 .name-title {
     font-weight: bold;
-    font-size: 28pt;
+    font-size: 30pt;
 }
 
 .name-subtitle {
@@ -268,13 +281,17 @@ export default Vue.extend({
 }
 
 .languages-summary-section {
-    margin-top: 2vh;
+    margin: 2vh 0 2vh 0;
 }
 
 .language-row-name {
     font-weight: bold;
     font-size: 11pt;
     padding: 0.15cm 0 0.15cm 0;
+}
+
+.certifications-section {
+    margin: 1vh 0 1vh 0;
 }
 
 .contact-summary-section {
@@ -306,18 +323,19 @@ export default Vue.extend({
     margin-top: 1vh;
 }
 
-.work-section {
-}
-
 .work-title {
-    font-size: 16pt;
+    font-size: 17pt;
     font-weight: bold;
 }
 
 .work-subtitle {
     font-size: 13pt;
     font-weight: bold;
-    padding-left: 1vw;
+    padding-left: 2vw;
+}
+
+.work-section {
+    margin-top: 1vh;
 }
 
 .work-section-li {

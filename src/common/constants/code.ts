@@ -13,6 +13,10 @@ export const WORK_LOGOS = [
         name: 'RightEye, LLC',
         filename: 'righteye.png',
     },
+    {
+        name: 'Ten Mile Square Technologies, LLC',
+        filename: 'tenmilesquare.png',
+    },
 ] as CodeLogo[];
 
 export const LANGUAGE_LOGOS = [
